@@ -6,9 +6,11 @@ import { registerUser } from "../managers/AuthManager"
 export const Register = () => {
     const firstName = useRef()
     const lastName = useRef()
+    const email = useRef()
     const username = useRef()
     const bio = useRef()
     const password = useRef()
+    const favoriteTeam = useRef()
     const verifyPassword = useRef()
     const passwordDialog = useRef()
     const navigate = useNavigate()
@@ -21,8 +23,10 @@ export const Register = () => {
                 "username": username.current.value,
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
+                "email": email.current.value,
                 "bio": bio.current.value,
-                "password": password.current.value
+                "password": password.current.value,
+                "favorite_team": favoriteTeam.current.value
             }
 
             registerUser(newUser)
@@ -56,8 +60,22 @@ export const Register = () => {
                     <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
                 </fieldset>
                 <fieldset>
+                    <label htmlFor="email"> Email </label>
+                    <input ref={email} type="text" name="email" className="form-control" placeholder="Email" required />
+                </fieldset>
+                <fieldset>
                     <label htmlFor="inputUsername">Username</label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="favoriteTeam"> Favorite Team </label>
+                    <select ref={favoriteTeam} name="favoriteTeam" className="form-control">
+                        <option value="0">Choose your favorite team...</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="verifyPassword"> Bio </label>
+                    <textarea ref={bio} name="bio" className="form-control" placeholder="Let other users know a little bit about you..." />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="inputPassword"> Password </label>
@@ -66,10 +84,6 @@ export const Register = () => {
                 <fieldset>
                     <label htmlFor="verifyPassword"> Verify Password </label>
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="verifyPassword"> Verify Password </label>
-                    <textarea ref={bio} name="bio" className="form-control" placeholder="Let other gamers know a little bit about you..." />
                 </fieldset>
                 <fieldset style={{
                     textAlign: "center"
