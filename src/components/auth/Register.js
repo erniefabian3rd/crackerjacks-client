@@ -1,7 +1,8 @@
-import React, { useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./Auth.css"
 import { registerUser } from "../managers/AuthManager"
+import { getTeams } from "../managers/TeamManager"
 
 export const Register = () => {
     const firstName = useRef()
@@ -14,6 +15,12 @@ export const Register = () => {
     const verifyPassword = useRef()
     const passwordDialog = useRef()
     const navigate = useNavigate()
+    const [teams, setTeams] = useState([])
+
+    useEffect(() => {
+        getTeams()
+            .then(teamData => setTeams(teamData))
+    }, [])
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -71,6 +78,11 @@ export const Register = () => {
                     <label htmlFor="favoriteTeam"> Favorite Team </label>
                     <select ref={favoriteTeam} name="favoriteTeam" className="form-control">
                         <option value="0">Choose your favorite team...</option>
+                        {teams.map((team) => (
+                                    <option key={team.id} value={team.id}>
+                                        {team.name}
+                                    </option>
+                        ))}
                     </select>
                 </fieldset>
                 <fieldset>
