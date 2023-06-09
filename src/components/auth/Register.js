@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./Auth.css"
 import { registerUser } from "../managers/AuthManager"
-import { getTeams } from "../managers/TeamManager"
+import { getTeamsForRegistration } from "../managers/TeamManager"
 
 export const Register = () => {
     const firstName = useRef()
@@ -12,13 +12,14 @@ export const Register = () => {
     const bio = useRef()
     const password = useRef()
     const favoriteTeam = useRef()
+    const profileImage = useRef()
     const verifyPassword = useRef()
     const passwordDialog = useRef()
     const navigate = useNavigate()
     const [teams, setTeams] = useState([])
 
     useEffect(() => {
-        getTeams()
+        getTeamsForRegistration()
             .then(teamData => setTeams(teamData))
     }, [])
 
@@ -33,7 +34,8 @@ export const Register = () => {
                 "email": email.current.value,
                 "bio": bio.current.value,
                 "password": password.current.value,
-                "favorite_team": favoriteTeam.current.value
+                "favorite_team": parseInt(favoriteTeam.current.value),
+                "profile_image_url": profileImage.current.value
             }
 
             registerUser(newUser)
@@ -73,6 +75,10 @@ export const Register = () => {
                 <fieldset>
                     <label htmlFor="inputUsername">Username</label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="inputUsername">Profile Image</label>
+                    <input ref={profileImage} type="text" name="profileImage" className="form-control" placeholder="Profile Image URL" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="favoriteTeam"> Favorite Team </label>
