@@ -4,6 +4,7 @@ import { Login } from "../auth/Login"
 import { Register } from "../auth/Register"
 import { ParkList } from "../parks/ParkList"
 import { HomeFeed } from "../posts/HomeFeed"
+import { TeamList } from "../teams/TeamList"
 
 
 export const ApplicationViews = () => {
@@ -15,6 +16,7 @@ export const ApplicationViews = () => {
             <Route element={<Authorized />}>
                 <Route path="/" element={<HomeFeed />} />
                 <Route path="/parks" element={<ParkList />} />
+                <Route path="/teams" element={<TeamList />} />
             </Route>
 
         </Routes>
