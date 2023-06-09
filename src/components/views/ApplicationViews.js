@@ -5,6 +5,7 @@ import { Register } from "../auth/Register"
 import { ParkList } from "../parks/ParkList"
 import { HomeFeed } from "../posts/HomeFeed"
 import { TeamList } from "../teams/TeamList"
+import { TripList } from "../trips/TripList"
 
 
 export const ApplicationViews = () => {
@@ -17,6 +18,7 @@ export const ApplicationViews = () => {
                 <Route path="/" element={<HomeFeed />} />
                 <Route path="/parks" element={<ParkList />} />
                 <Route path="/teams" element={<TeamList />} />
+                <Route path="/trips" element={<TripList />} />
             </Route>
 
         </Routes>
