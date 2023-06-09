@@ -8,16 +8,16 @@ export const NavBar = () => {
             <button className="navbar__item" onClick={() => {navigate('/')}}>
                 Home
             </button>
-            <button className="navbar__item" onClick={() => {navigate('/')}}>
+            <button className="navbar__item" onClick={() => {navigate('/parks')}}>
                 Parks
             </button>
-            <button className="navbar__item" onClick={() => {navigate('/')}}>
+            <button className="navbar__item" onClick={() => {navigate('/teams')}}>
                 Teams
             </button>
-            <button className="navbar__item" onClick={() => {navigate('/')}}>
+            <button className="navbar__item" onClick={() => {navigate('/trips')}}>
                 Trips
             </button>
-            <button className="navbar__item" onClick={() => {navigate('/')}}>
+            <button className="navbar__item" onClick={() => {navigate('/profile')}}>
                 Profile
             </button>
             {
