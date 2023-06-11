@@ -18,7 +18,7 @@ export const TeamList = () => {
     {
         teams.map((team) => {
             return (
-                <div className="teams_info">
+                <div className="teams_info" key={`teams--${team.id}`}>
                     <img className="teams_image" src={team.image_url} alt="Team Logo" />
                     <div className="teams_text">
                         <h3 className="teams_name">{team.name}</h3>

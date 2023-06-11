@@ -6,6 +6,7 @@ import { ParkList } from "../parks/ParkList"
 import { HomeFeed } from "../posts/HomeFeed"
 import { TeamList } from "../teams/TeamList"
 import { TripList } from "../trips/TripList"
+import { TripForm } from "../trips/TripForm"
 
 
 export const ApplicationViews = () => {
@@ -18,7 +19,9 @@ export const ApplicationViews = () => {
                 <Route path="/" element={<HomeFeed />} />
                 <Route path="/parks" element={<ParkList />} />
                 <Route path="/teams" element={<TeamList />} />
+
                 <Route path="/trips" element={<TripList />} />
+                <Route path="/trips/create" element={<TripForm />} />
             </Route>
 
         </Routes>

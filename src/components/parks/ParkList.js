@@ -18,7 +18,7 @@ export const ParkList = () => {
     {
         parks.map((park) => {
             return (
-                <div className="parks_info">
+                <div className="parks_info" key={`parks--${park.id}`}>
                     <img className="parks_image" src={park.image_url} alt="Park" />
                     <div className="parks_text">
                         <div className="parks_sub_container">
