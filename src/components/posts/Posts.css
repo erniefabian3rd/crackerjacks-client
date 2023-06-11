@@ -1,0 +1,101 @@
+#fixed-content {
+    position: fixed;
+    width: 35%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0px 0.1875rem 0.625rem;
+    top: 0;
+}
+
+.league_info_container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.posts_container {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.image_container {
+    display: flex;
+}
+.posts_info {
+    width: 400px;
+    margin: 10px auto 20px calc(50%);
+}
+
+.posts_header {
+    text-align: center;
+}
+
+.posts_profile_image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.posts_image {
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.posts_username {
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.posts_caption {
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: -5px;
+}
+
+.posts_text_container {
+    margin-left: 65px;
+    width: 400px;
+}
+
+.action_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action_icons {
+    margin-top: 10px;
+}
+
+.heart_icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.comment_icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.message_icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.trashcan_icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
