@@ -16,7 +16,7 @@ export const TripList = () => {
 
     return <>
     <h1 className="trips_header">Trips & Meetups</h1>
-    <section className="action_items">
+    <section className="trips_action_items">
         <input type="text" className="trip_search_box" placeholder="Search trips..."></input>
         <button className="create_trip_btn" onClick={() => navigate(`/trips/create`)}>Create a Trip</button>
     </section>

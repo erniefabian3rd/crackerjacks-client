@@ -43,7 +43,7 @@ export const TripForm = () => {
                             type="text"
                             className="form-control"
                             placeholder="Title of Trip"
-                            // value={band.bandName}
+                            value={trip.title}
                             onChange={
                                 (evt) => {
                                     const newTrip = { ...trip }
@@ -63,7 +63,7 @@ export const TripForm = () => {
                             type="date"
                             className="form-control"
                             placeholder="Date"
-                            // value={band.bandName}
+                            value={trip.date}
                             onChange={
                                 (evt) => {
                                     const newTrip = { ...trip }
@@ -83,7 +83,7 @@ export const TripForm = () => {
                             type="text"
                             className="form-control"
                             placeholder="Location"
-                            // value={band.bandName}
+                            value={trip.location}
                             onChange={
                                 (evt) => {
                                     const newTrip = { ...trip }
@@ -101,9 +101,9 @@ export const TripForm = () => {
                         <textarea
                             required autoFocus
                             type="text"
-                            className="form-control-band__bio"
+                            className="form-control-details"
                             placeholder="Tell others about the trip..."
-                            // value={band.bio}
+                            value={trip.details}
                             onChange={
                                 (evt) => {
                                     const newTrip = { ...trip }
@@ -123,7 +123,7 @@ export const TripForm = () => {
                             type="text"
                             className="form-control"
                             placeholder="Upload an image for the trip"
-                            // value={band.members}
+                            value={trip.imageURL}
                             onChange={
                                 (evt) => {
                                     const newTrip = { ...trip }
