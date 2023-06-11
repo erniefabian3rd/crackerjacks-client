@@ -30,7 +30,7 @@
 }
 
 .posts_header {
-    text-align: center;
+    margin-left: 64%;
 }
 
 .posts_profile_image {
@@ -98,4 +98,23 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+}
+
+.posts_action_items {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.post_search_box {
+    margin-left: 40%;
+}
+
+.create_post_btn {
+    margin-right: 5%;
+}
+
+.create_posts_header {
+    text-align: center;
+    margin-top: 150px;
 }

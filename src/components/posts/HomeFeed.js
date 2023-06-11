@@ -5,15 +5,19 @@ import heart from "../../images/heart.png"
 import comment from "../../images/comment.png"
 import message from "../../images/message.png"
 import trashcan from "../../images/trashcan.png"
+import { useNavigate } from "react-router-dom"
 
 export const HomeFeed = () => {
     const [posts, setPosts] = useState([])
+    const navigate = useNavigate()
 
     useEffect(
         () => {
             getPosts()
-                .then((postsData) => setPosts(postsData))
-        }, []
+                .then((postsData) => {
+                const sortedData = postsData.sort((a, b) => new Date(b.published_date) - new Date(a.published_date))
+                setPosts(sortedData)
+        })}, []
     )
 
     return <>
@@ -22,6 +26,11 @@ export const HomeFeed = () => {
         <h3>League News</h3>
     </section>
     <section className="posts_container" id="scrollable-content">
+        <h1 className="posts_header">Posts</h1>
+        <section className="posts_action_items">
+            <input type="text" className="post_search_box" placeholder="Search posts..."></input>
+            <button className="create_post_btn" onClick={() => navigate(`/posts/create`)}>Create a Post</button>
+        </section>
     {
         posts.map((post) => {
             return (

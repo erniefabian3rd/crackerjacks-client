@@ -7,6 +7,7 @@ import { HomeFeed } from "../posts/HomeFeed"
 import { TeamList } from "../teams/TeamList"
 import { TripList } from "../trips/TripList"
 import { TripForm } from "../trips/TripForm"
+import { PostForm } from "../posts/PostForm"
 
 
 export const ApplicationViews = () => {
@@ -17,6 +18,8 @@ export const ApplicationViews = () => {
 
             <Route element={<Authorized />}>
                 <Route path="/" element={<HomeFeed />} />
+                <Route path="/posts/create" element={<PostForm />} />
+                
                 <Route path="/parks" element={<ParkList />} />
                 <Route path="/teams" element={<TeamList />} />
 

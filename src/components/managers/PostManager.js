@@ -6,3 +6,15 @@ export const getPosts = () => {
     })
         .then(response => response.json())
 }
+
+export const createPost = (post) => {
+    return fetch("http://localhost:8000/posts", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        },
+        body: JSON.stringify(post)
+    })
+        .then(res => res.json())
+}
