@@ -13,17 +13,20 @@
 
 .trips_header {
     text-align: center;
+    margin-top: 150px;
 }
 
 .trips_image {
     width: 100%;
     height: auto;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .trips_title {
     font-size: 20px;
     text-align: center;
+    cursor: pointer;
 }
 
 .trips_location {
