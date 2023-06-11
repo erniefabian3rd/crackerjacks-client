@@ -18,3 +18,12 @@ export const createTrip = (trip) => {
     })
         .then(res => res.json())
 }
+
+export const deleteTrip = (tripId) => {
+    return fetch(`http://localhost:8000/trips/${tripId}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getTrips } from "../managers/TripManager"
+import { deleteTrip, getTrips } from "../managers/TripManager"
 import "./Trips.css"
 import { useNavigate } from "react-router-dom"
 import trashcan from "../../images/trashcan.png"
@@ -8,12 +8,27 @@ export const TripList = () => {
     const [trips, setTrips] = useState([])
     const navigate = useNavigate()
 
+    const getAllTrips = () => {
+        getTrips()
+            .then((tripsData) => {
+            const sortedData = tripsData.sort((a, b) => new Date(b.published_date) - new Date(a.published_date))
+            setTrips(sortedData)
+        })
+    }
+
     useEffect(
         () => {
-            getTrips()
-                .then((tripData) => setTrips(tripData))
+            getAllTrips()
         }, []
     )
+
+    const handleDeleteTrip = (tripId) => {
+        deleteTrip(tripId)
+            .then(() => {
+                window.confirm(`Are you sure you want to delete trip?`)
+                getAllTrips()
+            })
+    }
 
     return <>
     <h1 className="trips_header">Trips & Meetups</h1>
