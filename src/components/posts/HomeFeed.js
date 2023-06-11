@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./Posts.css"
-import { getPosts } from "../managers/PostManager"
+import { deletePost, getPosts } from "../managers/PostManager"
 import heart from "../../images/heart.png"
 import comment from "../../images/comment.png"
 import message from "../../images/message.png"
@@ -11,14 +11,27 @@ export const HomeFeed = () => {
     const [posts, setPosts] = useState([])
     const navigate = useNavigate()
 
+    const getAllPosts = () => {
+        getPosts()
+            .then((postsData) => {
+            const sortedData = postsData.sort((a, b) => new Date(b.published_date) - new Date(a.published_date))
+            setPosts(sortedData)
+        })
+    }
+
     useEffect(
         () => {
-            getPosts()
-                .then((postsData) => {
-                const sortedData = postsData.sort((a, b) => new Date(b.published_date) - new Date(a.published_date))
-                setPosts(sortedData)
-        })}, []
+            getAllPosts()
+        }, []
     )
+
+    const handleDeletePost = (postId) => {
+        deletePost(postId)
+            .then(() => {
+                window.confirm(`Are you sure you want to delete post?`)
+                getAllPosts()
+            })
+    }
 
     return <>
     <section className="league_info_container" id="fixed-content">
@@ -34,7 +47,7 @@ export const HomeFeed = () => {
     {
         posts.map((post) => {
             return (
-                <div className="posts_info">
+                <div className="posts_info" key={`posts--${post.id}`}>
                     <div className="image_container">
                         <img className="posts_profile_image" src={post.author.profile_image_url} alt="Profile Image" />
                         <img className="posts_image" src={post.image_url} alt="Post Image" />
@@ -46,7 +59,7 @@ export const HomeFeed = () => {
                                 <img className="heart_icon" src={heart}></img>
                                 <img className="comment_icon" src={comment}></img>
                                 <img className="message_icon" src={message}></img>
-                                <img className="trashcan_icon" src={trashcan}></img>
+                                <img className="trashcan_icon" src={trashcan} onClick={() => handleDeletePost(post.id)}></img>
                             </div>
                         </div>
                         <p className="posts_caption">{post.caption}</p>
