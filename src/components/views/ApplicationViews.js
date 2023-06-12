@@ -10,6 +10,7 @@ import { TripForm } from "../trips/TripForm"
 import { PostForm } from "../posts/PostForm"
 import { UserProfile } from "../profile/UserProfile"
 import { OtherUserProfile } from "../profile/OtherUserProfile"
+import { UpdatePostForm } from "../posts/UpdatePostForm"
 
 
 export const ApplicationViews = () => {
@@ -21,6 +22,7 @@ export const ApplicationViews = () => {
             <Route element={<Authorized />}>
                 <Route path="/" element={<HomeFeed />} />
                 <Route path="/posts/create" element={<PostForm />} />
+                <Route path="/posts/:postId/edit" element={<UpdatePostForm />} />
 
                 <Route path="/myprofile" element={ <UserProfile /> } />
                 <Route path="/profile/:userId" element={ <OtherUserProfile /> } />

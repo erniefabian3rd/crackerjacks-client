@@ -100,6 +100,13 @@
     cursor: pointer;
 }
 
+.gear_icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 2px;
+}
+
 .posts_action_items {
     display: flex;
     justify-content: space-between;
@@ -115,6 +122,11 @@
 }
 
 .create_posts_header {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.update_posts_header {
     text-align: center;
     margin-top: 150px;
 }
