@@ -8,6 +8,8 @@ import { TeamList } from "../teams/TeamList"
 import { TripList } from "../trips/TripList"
 import { TripForm } from "../trips/TripForm"
 import { PostForm } from "../posts/PostForm"
+import { UserProfile } from "../profile/UserProfile"
+import { OtherUserProfile } from "../profile/OtherUserProfile"
 
 
 export const ApplicationViews = () => {
@@ -19,6 +21,9 @@ export const ApplicationViews = () => {
             <Route element={<Authorized />}>
                 <Route path="/" element={<HomeFeed />} />
                 <Route path="/posts/create" element={<PostForm />} />
+
+                <Route path="/myprofile" element={ <UserProfile /> } />
+                <Route path="/profile/:userId" element={ <OtherUserProfile /> } />
                 
                 <Route path="/parks" element={<ParkList />} />
                 <Route path="/teams" element={<TeamList />} />
