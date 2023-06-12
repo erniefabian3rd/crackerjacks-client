@@ -11,6 +11,7 @@ import { PostForm } from "../posts/PostForm"
 import { UserProfile } from "../profile/UserProfile"
 import { OtherUserProfile } from "../profile/OtherUserProfile"
 import { UpdatePostForm } from "../posts/UpdatePostForm"
+import { UpdateTripForm } from "../trips/UpdateTripForm"
 
 
 export const ApplicationViews = () => {
@@ -32,6 +33,7 @@ export const ApplicationViews = () => {
 
                 <Route path="/trips" element={<TripList />} />
                 <Route path="/trips/create" element={<TripForm />} />
+                <Route path="/trips/:tripId/edit" element={<UpdateTripForm />} />
             </Route>
 
         </Routes>
