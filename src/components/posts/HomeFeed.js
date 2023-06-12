@@ -5,6 +5,7 @@ import heart from "../../images/heart.png"
 import comment from "../../images/comment.png"
 import message from "../../images/message.png"
 import trashcan from "../../images/trashcan.png"
+import gear from "../../images/gear.png"
 import { useNavigate } from "react-router-dom"
 
 export const HomeFeed = () => {
@@ -59,6 +60,7 @@ export const HomeFeed = () => {
                                 <img className="heart_icon" src={heart}></img>
                                 <img className="comment_icon" src={comment}></img>
                                 <img className="message_icon" src={message}></img>
+                                <img className="gear_icon" src={gear} onClick={() => navigate(`posts/${post.id}/edit`)}></img>
                                 <img className="trashcan_icon" src={trashcan} onClick={() => handleDeletePost(post.id)}></img>
                             </div>
                         </div>
