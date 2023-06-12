@@ -54,7 +54,7 @@ export const HomeFeed = () => {
                     </div>
                     <div className="posts_text_container">
                         <div className="action_container">
-                            <h3 className="posts_username">{post.author.user.username}</h3>
+                            <h3 className="posts_username" onClick={() => navigate(`/profile/${post.author.id}`)}>{post.author.user.username}</h3>
                             <div className="action_icons">
                                 <img className="heart_icon" src={heart}></img>
                                 <img className="comment_icon" src={comment}></img>

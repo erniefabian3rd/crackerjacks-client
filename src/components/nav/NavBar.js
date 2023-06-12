@@ -3,6 +3,7 @@ import "./NavBar.css"
 
 export const NavBar = () => {
     const navigate = useNavigate()
+
     return (
         <ul className="navbar">
             <button className="navbar__item" onClick={() => {navigate('/')}}>
@@ -17,7 +18,7 @@ export const NavBar = () => {
             <button className="navbar__item" onClick={() => {navigate('/trips')}}>
                 Trips
             </button>
-            <button className="navbar__item" onClick={() => {navigate('/profile')}}>
+            <button className="navbar__item" onClick={() => {navigate(`/myprofile`)}}>
                 Profile
             </button>
             {
