@@ -3,6 +3,7 @@ import { deleteTrip, getTrips } from "../managers/TripManager"
 import "./Trips.css"
 import { useNavigate } from "react-router-dom"
 import trashcan from "../../images/trashcan.png"
+import gear from "../../images/gear.png"
 
 export const TripList = () => {
     const [trips, setTrips] = useState([])
@@ -46,6 +47,7 @@ export const TripList = () => {
                         <p className="trips_date">Date: {trip.date}</p>
                         <p className="trips_location">Location: {trip.location}</p>
                         <p className="trips_organizer">Organizer: {trip.organizer.user.username}</p>
+                        <img className="gear_icon" src={gear} onClick={() => navigate(`/trips/${trip.id}/edit`)}></img>
                         <img className="trashcan_icon" src={trashcan} onClick={() => handleDeleteTrip(trip.id)}></img>
                 </section>
             )
