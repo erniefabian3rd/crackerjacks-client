@@ -24,3 +24,14 @@ export const getSelfDetails = () => {
     })
         .then(response => response.json())
 }
+
+export const updateProfileDetails = (user) => {
+    return fetch(`http://localhost:8000/users/${user.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        },
+        body: JSON.stringify(user)
+    })
+}

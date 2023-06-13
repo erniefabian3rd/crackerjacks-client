@@ -13,6 +13,7 @@ import { OtherUserProfile } from "../profile/OtherUserProfile"
 import { UpdatePostForm } from "../posts/UpdatePostForm"
 import { UpdateTripForm } from "../trips/UpdateTripForm"
 import { ParkDetails } from "../parks/ParkDetails"
+import { UpdateProfileForm } from "../profile/UpdateProfileForm"
 
 
 export const ApplicationViews = () => {
@@ -28,6 +29,7 @@ export const ApplicationViews = () => {
 
                 <Route path="/myprofile" element={ <UserProfile /> } />
                 <Route path="/profile/:userId" element={ <OtherUserProfile /> } />
+                <Route path="/profile/:userId/edit" element={ <UpdateProfileForm /> } />
                 
                 <Route path="/parks" element={<ParkList />} />
                 <Route path="/parks/:parkId" element={<ParkDetails />} />
