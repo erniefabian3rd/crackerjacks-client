@@ -12,6 +12,7 @@ import { UserProfile } from "../profile/UserProfile"
 import { OtherUserProfile } from "../profile/OtherUserProfile"
 import { UpdatePostForm } from "../posts/UpdatePostForm"
 import { UpdateTripForm } from "../trips/UpdateTripForm"
+import { ParkDetails } from "../parks/ParkDetails"
 
 
 export const ApplicationViews = () => {
@@ -29,6 +30,8 @@ export const ApplicationViews = () => {
                 <Route path="/profile/:userId" element={ <OtherUserProfile /> } />
                 
                 <Route path="/parks" element={<ParkList />} />
+                <Route path="/parks/:parkId" element={<ParkDetails />} />
+
                 <Route path="/teams" element={<TeamList />} />
 
                 <Route path="/trips" element={<TripList />} />

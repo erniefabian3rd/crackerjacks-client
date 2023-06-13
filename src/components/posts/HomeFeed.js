@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom"
 export const HomeFeed = () => {
     const [posts, setPosts] = useState([])
     const navigate = useNavigate()
+    const loggedInUser = parseInt(localStorage.getItem("cj_userId"))
 
     const getAllPosts = () => {
         getPosts()
@@ -60,8 +61,10 @@ export const HomeFeed = () => {
                                 <img className="heart_icon" src={heart}></img>
                                 <img className="comment_icon" src={comment}></img>
                                 <img className="message_icon" src={message}></img>
-                                <img className="gear_icon" src={gear} onClick={() => navigate(`posts/${post.id}/edit`)}></img>
-                                <img className="trashcan_icon" src={trashcan} onClick={() => handleDeletePost(post.id)}></img>
+                                {loggedInUser === post.author.user.id ? (<>
+                                <img className="gear_icon" src={gear} onClick={() => navigate(`posts/${post.id}/edit`)}/>
+                                <img className="trashcan_icon" src={trashcan} onClick={() => handleDeletePost(post.id)}/>
+                                </>) : ""}
                             </div>
                         </div>
                         <p className="posts_caption">{post.caption}</p>

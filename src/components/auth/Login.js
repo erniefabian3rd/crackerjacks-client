@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./Auth.css"
 import { loginUser } from "../managers/AuthManager"
@@ -20,6 +20,7 @@ export const Login = () => {
             .then(res => {
                 if ("valid" in res && res.valid && "token" in res) {
                     localStorage.setItem("cj_token", res.token)
+                    localStorage.setItem("cj_userId", res.user_id)
                     navigate("/")
                 }
                 else {
