@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getSelfDetails } from "../managers/UserManager"
 import "./UserProfile.css"
 import { useNavigate } from "react-router-dom"
+import gear from "../../images/gear.png"
 
 export const UserProfile = () => {
     const [CJUser, setCJUser] = useState({})
@@ -29,6 +30,7 @@ export const UserProfile = () => {
             <h4 className="profile_username">@{CJUser.user.username}</h4>
             <div><b className="profile_team">Favorite Team:</b> {CJUser.favorite_team.name}</div>
             <div><b className="profile_bio">Bio:</b> {CJUser.bio}</div><br/>
+            <img className="gear_icon" src={gear} onClick={() => navigate(`/profile/${CJUser.id}/edit`)}></img>
         </div>
     </section>
     <h2 className="visited_parks">Visited Parks</h2>
