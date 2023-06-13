@@ -8,6 +8,7 @@ import gear from "../../images/gear.png"
 export const TripList = () => {
     const [trips, setTrips] = useState([])
     const navigate = useNavigate()
+    const loggedInUser = parseInt(localStorage.getItem("cj_userId"))
 
     const getAllTrips = () => {
         getTrips()
@@ -47,8 +48,10 @@ export const TripList = () => {
                         <p className="trips_date">Date: {trip.date}</p>
                         <p className="trips_location">Location: {trip.location}</p>
                         <p className="trips_organizer">Organizer: {trip.organizer.user.username}</p>
+                        {loggedInUser === trip.organizer.user.id ? (<>
                         <img className="gear_icon" src={gear} onClick={() => navigate(`/trips/${trip.id}/edit`)}></img>
                         <img className="trashcan_icon" src={trashcan} onClick={() => handleDeleteTrip(trip.id)}></img>
+                        </>) : ""}
                 </section>
             )
         })
