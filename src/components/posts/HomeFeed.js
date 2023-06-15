@@ -51,14 +51,14 @@ export const HomeFeed = () => {
                 <div className="posts_info" key={`posts--${post.id}`}>
                     <div className="image_container">
                         <img className="posts_profile_image" src={post.author.profile_image_url} alt="Profile Image" />
-                        <img className="posts_image" src={post.image_url} alt="Post Image" />
+                        <img className="posts_image" src={post.image_url} alt="Post Image" onClick={() => navigate(`/posts/${post.id}`)}/>
                     </div>
                     <div className="posts_text_container">
                         <div className="action_container">
                             <h3 className="posts_username" onClick={() => navigate(`/profile/${post.author.id}`)}>{post.author.user.username}</h3>
                             <div className="action_icons">
                                 <img className="heart_icon" src={heart}></img>
-                                <img className="comment_icon" src={comment}></img>
+                                <img className="comment_icon" src={comment} onClick={() => navigate(`/posts/${post.id}`)}></img>
                                 <img className="message_icon" src={message}></img>
                                 {post.may_edit_or_delete ? (<>
                                 <img className="gear_icon" src={gear} onClick={() => navigate(`posts/${post.id}/edit`)}/>

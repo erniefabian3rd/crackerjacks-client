@@ -16,6 +16,7 @@ import { ParkDetails } from "../parks/ParkDetails"
 import { UpdateProfileForm } from "../profile/UpdateProfileForm"
 import { TeamDetails } from "../teams/TeamDetails"
 import { TripDetails } from "../trips/TripDetails"
+import { PostDetails } from "../posts/PostDetails"
 
 
 export const ApplicationViews = () => {
@@ -26,6 +27,7 @@ export const ApplicationViews = () => {
 
             <Route element={<Authorized />}>
                 <Route path="/" element={<HomeFeed />} />
+                <Route path="/posts/:postId" element={<PostDetails />} />
                 <Route path="/posts/create" element={<PostForm />} />
                 <Route path="/posts/:postId/edit" element={<UpdatePostForm />} />
 
