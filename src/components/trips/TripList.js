@@ -42,8 +42,8 @@ export const TripList = () => {
         trips.map((trip) => {
             return (
                 <section className="trips_info" key={`trips--${trip.id}`}>
-                    <img className="trips_image" src={trip.image_url} alt="Trip Image" />
-                        <h3 className="trips_title">{trip.title}</h3>
+                    <img className="trips_image" src={trip.image_url} alt="Trip Image" onClick={() => navigate(`/trips/${trip.id}`)}/>
+                        <h3 className="trips_title" onClick={() => navigate(`/trips/${trip.id}`)}>{trip.title}</h3>
                         <p className="trips_date">Date: {trip.date}</p>
                         <p className="trips_location">Location: {trip.location}</p>
                         <p className="trips_organizer">Organizer: {trip.organizer.user.username}</p>

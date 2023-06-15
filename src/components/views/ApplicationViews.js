@@ -15,6 +15,7 @@ import { UpdateTripForm } from "../trips/UpdateTripForm"
 import { ParkDetails } from "../parks/ParkDetails"
 import { UpdateProfileForm } from "../profile/UpdateProfileForm"
 import { TeamDetails } from "../teams/TeamDetails"
+import { TripDetails } from "../trips/TripDetails"
 
 
 export const ApplicationViews = () => {
@@ -40,6 +41,7 @@ export const ApplicationViews = () => {
 
                 <Route path="/trips" element={<TripList />} />
                 <Route path="/trips/create" element={<TripForm />} />
+                <Route path="/trips/:tripId" element={ <TripDetails /> } />
                 <Route path="/trips/:tripId/edit" element={<UpdateTripForm />} />
             </Route>
 
