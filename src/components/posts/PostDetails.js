@@ -93,7 +93,7 @@ export const PostDetails = () => {
     <section className="post_details_container">
         <div className="image_container">
             <img className="posts_profile_image" src={post.author?.profile_image_url} alt="Profile Image" />
-            <img className="posts_image" src={post.image_url} alt="Post Image" onClick={() => navigate(`/posts/${post.id}`)}/>
+            <img className="posts_image" src={post.image_url} alt="Post Image" onDoubleClick={() => {post.is_liked ? handleUnlike(post.id) : handleLike(post.id)}}/>
         </div>
         <div className="posts_text_container">
             <div className="action_container">
