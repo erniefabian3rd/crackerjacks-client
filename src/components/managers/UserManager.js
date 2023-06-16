@@ -35,3 +35,22 @@ export const updateProfileDetails = (user) => {
         body: JSON.stringify(user)
     })
 }
+
+export const followerUser = (userId) => {
+    return fetch(`http://localhost:8000/users/${userId}/follow`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+}
+
+export const unfollowUser = (userId) => {
+    return fetch(`http://localhost:8000/users/${userId}/unfollow`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+}
