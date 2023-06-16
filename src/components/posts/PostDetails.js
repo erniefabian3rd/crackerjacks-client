@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import "./Posts.css"
 import { useNavigate, useParams } from "react-router-dom"
-import { getPostDetails, deletePost } from "../managers/PostManager"
+import { getPostDetails, deletePost, likePost, unlikePost } from "../managers/PostManager"
+import filled_heart from "../../images/filled-heart.png"
 import heart from "../../images/heart.png"
 import commentbubble from "../../images/comment.png"
 import message from "../../images/message.png"
@@ -25,10 +26,14 @@ export const PostDetails = () => {
                 .then(commentData => setComments(commentData))
     }
 
+    const getSelectedPostDetails = () => {
+        getPostDetails(postId)
+        .then((postData) => setPost(postData))
+    }
+
     useEffect(
         () => {
-            getPostDetails(postId)
-            .then((postData) => setPost(postData))
+            getSelectedPostDetails()
         },
         [postId]
     )
@@ -68,6 +73,20 @@ export const PostDetails = () => {
         })
     }
 
+    const handleLike = (postId) => {
+        likePost(postId)
+            .then(() => {
+                getSelectedPostDetails()
+            })
+    }
+
+    const handleUnlike = (postId) => {
+        unlikePost(postId)
+            .then(() => {
+                getSelectedPostDetails()
+            })
+    }
+
 
     return <>
     <h1 className="post_details_header">Post Details</h1>
@@ -79,8 +98,12 @@ export const PostDetails = () => {
         <div className="posts_text_container">
             <div className="action_container">
                 <h3 className="posts_username" onClick={() => navigate(`/profile/${post.author.id}`)}>{post.author?.user.username}</h3>
+                <p className="post_like_count">Likes: {post.like_count}</p>
                 <div className="action_icons">
-                    <img className="heart_icon" src={heart}></img>
+                    {post.is_liked
+                    ? <img className="heart_icon" src={filled_heart} onClick={() => handleUnlike(post.id)}></img>
+                    : <img className="heart_icon" src={heart} onClick={() => handleLike(post.id)}></img>
+                    }
                     <img className="comment_icon" src={commentbubble}></img>
                     <img className="message_icon" src={message}></img>
                     {post.may_edit_or_delete ? (<>

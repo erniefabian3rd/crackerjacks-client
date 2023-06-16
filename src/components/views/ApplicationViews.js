@@ -22,8 +22,6 @@ import { PostDetails } from "../posts/PostDetails"
 export const ApplicationViews = () => {
     return <>
         <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
 
             <Route element={<Authorized />}>
                 <Route path="/" element={<HomeFeed />} />
