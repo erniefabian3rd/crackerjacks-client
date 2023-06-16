@@ -47,3 +47,22 @@ export const deletePost = (postId) => {
         }
     })
 }
+
+export const likePost = (postId) => {
+    return fetch(`http://localhost:8000/posts/${postId}/like`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+}
+
+export const unlikePost = (postId) => {
+    return fetch(`http://localhost:8000/posts/${postId}/unlike`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+}

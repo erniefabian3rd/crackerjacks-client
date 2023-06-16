@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./Posts.css"
-import { deletePost, getPosts } from "../managers/PostManager"
+import { deletePost, getPosts, likePost, unlikePost } from "../managers/PostManager"
+import filled_heart from "../../images/filled-heart.png"
 import heart from "../../images/heart.png"
 import comment from "../../images/comment.png"
 import message from "../../images/message.png"
@@ -57,7 +58,10 @@ export const HomeFeed = () => {
                         <div className="action_container">
                             <h3 className="posts_username" onClick={() => navigate(`/profile/${post.author.id}`)}>{post.author.user.username}</h3>
                             <div className="action_icons">
-                                <img className="heart_icon" src={heart}></img>
+                                {post.is_liked
+                                ? <img className="heart_icon" src={filled_heart} onClick={() => (unlikePost(post.id)).then(getAllPosts())}></img>
+                                : <img className="heart_icon" src={heart} onClick={() => (likePost(post.id)).then(getAllPosts())}></img>
+                                }
                                 <img className="comment_icon" src={comment} onClick={() => navigate(`/posts/${post.id}`)}></img>
                                 <img className="message_icon" src={message}></img>
                                 {post.may_edit_or_delete ? (<>
