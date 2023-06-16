@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { deleteTrip, getTrips } from "../managers/TripManager"
+import { deleteTrip, filterTripsBySearch, getTrips } from "../managers/TripManager"
 import "./Trips.css"
 import { useNavigate } from "react-router-dom"
 import trashcan from "../../images/trashcan.png"
@@ -8,6 +8,7 @@ import gear from "../../images/gear.png"
 export const TripList = () => {
     const [trips, setTrips] = useState([])
     const navigate = useNavigate()
+    const [ filterBySearch, setFilterBySearch ] = useState()
 
     const getAllTrips = () => {
         getTrips()
@@ -31,10 +32,27 @@ export const TripList = () => {
             })
     }
 
+    useEffect(
+        () => {
+            if (filterBySearch) {
+                filterTripsBySearch(filterBySearch)
+                    .then((filteredData) => setTrips(filteredData))
+            } else {
+                getAllTrips()
+            }
+        }, [filterBySearch]
+    )
+
     return <>
     <h1 className="trips_header">Trips & Meetups</h1>
     <section className="trips_action_items">
-        <input type="text" className="trip_search_box" placeholder="Search trips..."></input>
+        <input
+            type="text"
+            className="trip_search_box"
+            placeholder="Search trips..."
+            onChange={(changeEvent) => {
+                setFilterBySearch(changeEvent.target.value)
+            }} />
         <button className="create_trip_btn" onClick={() => navigate(`/trips/create`)}>Create a Trip</button>
     </section>
     <section className="trips_container">
