@@ -5,6 +5,8 @@
     background-color: white;
     box-shadow: 0px 0.1875rem 0.625rem;
     top: 0;
+    align-items: center;
+    justify-content: center;
 }
 
 .league_info_container {
@@ -12,6 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin-top: 50px;
 }
 
 .posts_container {
@@ -171,4 +174,64 @@
 
 .post_like_count {
     margin-top: 10px;
+}
+
+.todays_games_container {
+    margin-top: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scrollable-box {
+    overflow-y: auto;
+    max-height: 300px;
+    border: 1px solid black;
+    width: 75%;
+}
+
+.todays_games {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.away_team {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.home_team {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.team_logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.away_name,
+.home_name {
+    font-weight: bold;
+}
+
+.away_record,
+.home_record {
+    margin-left: 50px;
+}
+
+.article_title {
+    cursor: pointer;
+    color: black;
+}
+
+.article_link {
+    text-decoration: none;
 }

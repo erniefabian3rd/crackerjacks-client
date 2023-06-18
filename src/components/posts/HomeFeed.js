@@ -8,11 +8,16 @@ import message from "../../images/message.png"
 import trashcan from "../../images/trashcan.png"
 import gear from "../../images/gear.png"
 import { useNavigate } from "react-router-dom"
+import { getMLBTeams, getTodaysGames } from "../managers/GameManager"
+import { getLeagueNews } from "../managers/NewsManager"
 
 export const HomeFeed = () => {
     const [posts, setPosts] = useState([])
     const [filteredPosts, setFilteredPosts] = useState([])
     const [ filterBySearch, setFilterBySearch ] = useState()
+    const [sortedGames, setSortedGames] = useState([])
+    const [MLBTeams, setMLBTeams] = useState({})
+    const [newsArticle, setNews] = useState([])
     const navigate = useNavigate()
 
     const getAllPosts = () => {
@@ -29,6 +34,63 @@ export const HomeFeed = () => {
             getAllPosts()
         }, []
     )
+
+    useEffect(() => {
+        getTodaysGames()
+            .then((todaysGameData) => {
+                if (todaysGameData.body) {
+                    const sortedGames = Object.entries(todaysGameData.body).sort(([, a], [, b]) => {
+                        if (a.gameStatus < b.gameStatus) {
+                            return 1
+                        }
+                        if (a.gameStatus > b.gameStatus) {
+                            return -1
+                        }
+                        return 0
+                    })
+                    setSortedGames(sortedGames);
+                }
+            })
+    }, []
+    )
+
+    useEffect(() => {
+        getMLBTeams()
+            .then((teamData) => {
+                setMLBTeams(teamData)
+            })
+    }, []
+    )
+
+    useEffect(() => {
+        getLeagueNews()
+            .then((newsData) => {
+                setNews(newsData)
+            })
+    }, []
+    )
+
+
+    const getTeamLogo = (teamID) => {
+        const teams = MLBTeams.body.find((team) => team.teamID === teamID)
+        let teamLogo = ""
+
+        if (teams) {
+        teamLogo = teams.mlbLogo1
+        }
+        return teamLogo
+    }
+
+    const getTeamRecord = (teamID) => {
+        const teams = MLBTeams.body.find((team) => team.teamID === teamID)
+        let teamRecord = ""
+
+        if (teams) {
+            teamRecord = `${teams.wins}-${teams.loss}`
+        }
+        return teamRecord
+    }
+
 
     const handleLike = (postId) => {
         likePost(postId)
@@ -82,8 +144,50 @@ export const HomeFeed = () => {
     return <>
     <section className="league_info_container" id="fixed-content">
         <h3>League Scores</h3>
+        <div className="todays_games_container scrollable-box">
+        {sortedGames && sortedGames.map(([key, todaysGame]) => (
+        <div key={key} className="todays_games">
+            <div>{todaysGame.currentInning}</div>
+            <div className="teams_playing">
+            {todaysGame.gameStatus === "Not Started Yet"
+            ? <p className="start_time">{todaysGame.gameTime}</p>
+            : ""
+            }
+                <div className="away_team">
+                    <img className="team_logo" src={getTeamLogo(todaysGame.teamIDAway)} alt="Team Logo" />
+                    <p className="away_name">{todaysGame.away} {todaysGame.lineScore?.away.R}</p>
+                    {todaysGame.gameStatus === "Not Started Yet"
+                    ? <p className="away_record">{getTeamRecord(todaysGame.teamIDAway)}</p>
+                    : ""
+                    }
+                </div>
+                <div className="home_team">
+                    <img className="team_logo" src={getTeamLogo(todaysGame.teamIDHome)} alt="Team Logo" />
+                    <p className="home_name">{todaysGame.home} {todaysGame.lineScore?.home.R}</p>
+                    {todaysGame.gameStatus === "Not Started Yet"
+                    ? <p className="home_record">{getTeamRecord(todaysGame.teamIDHome)}</p>
+                    : ""
+                    }
+                </div>
+            </div>
+        </div>
+        ))}
+        </div>
         <h3>League News</h3>
+        <div className="league_news_container scrollable-box">
+        {newsArticle.map((news) => {
+            return <div key={news.id}>
+                <a className="article_link" href={news.link_url} target="_blank">
+                    <h4 className="article_title">{news.title}</h4>
+                </a>
+                <p>{news.article}</p>
+                <p>{news.published_date}</p>
+            </div>
+        })
+        }
+        </div>
     </section>
+
     <section className="posts_container" id="scrollable-content">
         <h1 className="posts_header">Posts</h1>
         <section className="posts_action_items">
