@@ -86,7 +86,7 @@ export const ParkDetails = () => {
     return <>
         <h1 className="parks_header">Park Details</h1>
         <button className="leave_review_btn" onClick={() => navigate(`/parks/${park.id}/review`)}>Leave a Review</button>
-        {park.is_visited
+        {park.is_visited === true
         ? <button className="mark_visited_btn" onClick={() => handleUnmarkingAsVisited(park.id)}>Visited</button>
         : <button className="mark_visited_btn" onClick={() => handleMarkingAsVisited(park.id)}>Mark as Visited</button>
         }

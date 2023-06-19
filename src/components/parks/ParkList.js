@@ -49,7 +49,7 @@ export const ParkList = () => {
                     <div className="parks_text">
                         <div className="parks_sub_container">
                             <h3 className="parks_name" onClick={() => navigate(`/parks/${park.id}`)}>{park.name}</h3>
-                            <p className="parks_avg_rating">Rating: </p>
+                            <p className="parks_avg_rating">Rating: {park.avg_rating}</p>
                         </div>
                         <p className="parks_location">{park.location}</p>
                     </div>
