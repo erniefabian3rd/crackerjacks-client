@@ -35,7 +35,6 @@ export const UserProfile = () => {
 
     return <>
     <h1 className="profile_header">Profile</h1>
-    <button className="create_post_button" onClick={() => navigate(`/posts/create`)}>Create a Post</button>
     <section className="profile_details">
         <img className="profile_image" src={CJUser?.profile_image_url}></img>
         <div className="profile_details_info">

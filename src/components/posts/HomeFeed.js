@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./Posts.css"
-import { deletePost, filterPostsBySearch, getPosts, likePost, unlikePost } from "../managers/PostManager"
+import { createPost, deletePost, filterPostsBySearch, getPosts, likePost, unlikePost } from "../managers/PostManager"
 import filled_heart from "../../images/filled-heart.png"
 import heart from "../../images/heart.png"
 import comment from "../../images/comment.png"
@@ -18,7 +18,12 @@ export const HomeFeed = () => {
     const [sortedGames, setSortedGames] = useState([])
     const [MLBTeams, setMLBTeams] = useState({})
     const [newsArticle, setNews] = useState([])
+    const [showCreateForm, setShowCreateForm] = useState(false);
     const navigate = useNavigate()
+    const [post, updateNewPost] = useState({
+        imageURL: "",
+        caption: ""
+    })
 
     const getAllPosts = () => {
         getPosts()
@@ -72,16 +77,19 @@ export const HomeFeed = () => {
 
 
     const getTeamLogo = (teamID) => {
+        if (MLBTeams.body) {
         const teams = MLBTeams.body.find((team) => team.teamID === teamID)
         let teamLogo = ""
 
         if (teams) {
         teamLogo = teams.mlbLogo1
         }
+    
         return teamLogo
-    }
+    }}
 
     const getTeamRecord = (teamID) => {
+        if (MLBTeams.body) {
         const teams = MLBTeams.body.find((team) => team.teamID === teamID)
         let teamRecord = ""
 
@@ -89,7 +97,7 @@ export const HomeFeed = () => {
             teamRecord = `${teams.wins}-${teams.loss}`
         }
         return teamRecord
-    }
+    }}
 
 
     const handleLike = (postId) => {
@@ -112,6 +120,23 @@ export const HomeFeed = () => {
             )
         )
         })
+    }
+
+    const submissionButton = (event) => {
+        event.preventDefault()
+
+        const postToSendToAPI = {
+            image_url: post.imageURL,
+            caption: post.caption
+        }
+
+        return createPost(postToSendToAPI)
+            .then(() => {
+                alert("Your post was successful!")
+                getAllPosts()
+                setShowCreateForm(false)
+                updateNewPost({ imageURL: "", caption: "" })
+            })
     }
 
     const handleDeletePost = (postId) => {
@@ -140,6 +165,13 @@ export const HomeFeed = () => {
         }
     }, [filterBySearch, posts]
     )
+
+    const handleCreatePost = () => {
+        if (!showCreateForm) {
+            updateNewPost({ imageURL: "", caption: "" });
+        }
+        setShowCreateForm(!showCreateForm)
+    }
 
     return <>
     <section className="league_info_container" id="fixed-content">
@@ -197,8 +229,62 @@ export const HomeFeed = () => {
                 onChange={(changeEvent) => {
                     setFilterBySearch(changeEvent.target.value)
                 }} />
-            <button className="create_post_btn" onClick={() => navigate(`/posts/create`)}>Create a Post</button>
+            <button className="create_post_btn" onClick={() => handleCreatePost()}>
+                {showCreateForm ? "Close" : "Create a Post"}
+            </button>
         </section>
+        {showCreateForm && (
+            <div className="create_post_form">
+            <form className="post_form">
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="image">Post Image:</label>
+                    <div className="input__field">
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder="Image URL"
+                            value={post.imageURL}
+                            onChange={
+                                (evt) => {
+                                    const newPost = { ...post }
+                                    newPost.imageURL = evt.target.value
+                                    updateNewPost(newPost)
+                                }
+                            } />
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="caption">Caption:</label>
+                    <div className="input__field">
+                        <textarea
+                            required autoFocus
+                            type="text"
+                            className="form-control-caption"
+                            placeholder="What's on your mind?"
+                            value={post.caption}
+                            onChange={
+                                (evt) => {
+                                    const newPost = { ...post }
+                                    newPost.caption = evt.target.value
+                                    updateNewPost(newPost)
+                                }
+                            } />
+                    </div>
+                </div>
+            </fieldset>
+            <button
+                onClick={(clickEvent) => {
+                    submissionButton(clickEvent)}}
+                className="btn-submit"><b>
+                    Submit
+                </b></button>
+        </form>
+        </div>)}
+
     {
         filteredPosts.map((post) => {
             return (

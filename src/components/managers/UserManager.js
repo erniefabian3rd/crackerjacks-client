@@ -54,3 +54,13 @@ export const unfollowUser = (userId) => {
         }
     })
 }
+
+
+export const filterUsersBySearch = (searchTerm) => {
+    return fetch(`http://localhost:8000/users?search=${searchTerm}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+        .then(response => response.json())
+}

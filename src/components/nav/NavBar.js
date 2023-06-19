@@ -18,6 +18,9 @@ export const NavBar = () => {
             <button className="navbar__item" onClick={() => {navigate('/trips')}}>
                 Trips
             </button>
+            <button className="navbar__item" onClick={() => {navigate('/users')}}>
+                Users
+            </button>
             <button className="navbar__item" onClick={() => {navigate(`/myprofile`)}}>
                 Profile
             </button>
