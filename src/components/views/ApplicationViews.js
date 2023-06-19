@@ -17,6 +17,7 @@ import { UpdateProfileForm } from "../profile/UpdateProfileForm"
 import { TeamDetails } from "../teams/TeamDetails"
 import { TripDetails } from "../trips/TripDetails"
 import { PostDetails } from "../posts/PostDetails"
+import { ParkReviewForm } from "../parks/ParkReviewForm"
 
 
 export const ApplicationViews = () => {
@@ -35,6 +36,7 @@ export const ApplicationViews = () => {
                 
                 <Route path="/parks" element={<ParkList />} />
                 <Route path="/parks/:parkId" element={<ParkDetails />} />
+                <Route path="/parks/:parkId/review" element={<ParkReviewForm />} />
 
                 <Route path="/teams" element={<TeamList />} />
                 <Route path="/teams/:teamId" element={<TeamDetails />} />

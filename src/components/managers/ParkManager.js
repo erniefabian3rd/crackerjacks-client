@@ -43,3 +43,14 @@ export const filterParksBySearch = (searchTerm) => {
     })
         .then(response => response.json())
 }
+
+export const rateAndReviewPark = (parkId, review) => {
+    return fetch(`http://localhost:8000/parks/${parkId}/review`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        },
+        body: JSON.stringify(review)
+    })
+}
