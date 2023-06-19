@@ -27,3 +27,25 @@ export const getMLBTeams = () => {
     })
         .then(response => response.json())
 }
+
+export const getTeamSchedule = (teamID) => {
+    return fetch(`https://tank01-mlb-live-in-game-real-time-statistics.p.rapidapi.com/getMLBTeamSchedule?teamID=${teamID}&season=2023`, {
+        method: 'GET',
+        headers:{
+        'X-RapidAPI-Key': 'f909c4e0d7mshd963c2903291bd2p1a5855jsn10c8cb826218',
+		'X-RapidAPI-Host': 'tank01-mlb-live-in-game-real-time-statistics.p.rapidapi.com'
+        }
+    })
+        .then(response => response.json())
+}
+
+export const getTeamRoster = (teamID) => {
+    return fetch(`https://tank01-mlb-live-in-game-real-time-statistics.p.rapidapi.com/getMLBTeamRoster?teamID=${teamID}`, {
+        method: 'GET',
+        headers:{
+        'X-RapidAPI-Key': 'f909c4e0d7mshd963c2903291bd2p1a5855jsn10c8cb826218',
+		'X-RapidAPI-Host': 'tank01-mlb-live-in-game-real-time-statistics.p.rapidapi.com'
+        }
+    })
+        .then(response => response.json())
+}
