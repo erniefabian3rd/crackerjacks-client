@@ -3,9 +3,11 @@ import { getSelfDetails } from "../managers/UserManager"
 import "./UserProfile.css"
 import { useNavigate } from "react-router-dom"
 import gear from "../../images/gear.png"
+import { getParks } from "../managers/ParkManager"
 
 export const UserProfile = () => {
     const [CJUser, setCJUser] = useState({})
+    const [parks, setParks] = useState([])
     const navigate = useNavigate()
 
     useEffect(
@@ -16,9 +18,20 @@ export const UserProfile = () => {
         []
     )
 
+    useEffect(
+        () => {
+            getParks()
+                .then((parkData) => {
+                    setParks(parkData)
+                })
+        }, []
+    )
+
     if (!CJUser.user) {
-        return null;
+        return null
     }
+
+    console.log(CJUser.visited_parks)
 
     return <>
     <h1 className="profile_header">Profile</h1>
@@ -34,5 +47,19 @@ export const UserProfile = () => {
         </div>
     </section>
     <h2 className="visited_parks">Visited Parks</h2>
+    <section className="visited_parks_container">
+    {parks.map((park) => {
+        const visitedPark = CJUser.visited_parks.find(
+            (visitedPark) => visitedPark.park === park.id
+        )
+        return (
+        <div key={park.id}>
+        {visitedPark
+            ? <img className="visited_park_images" src={park.image_url} alt={park.name} />
+            : <img className="nonvisited_park_images" src={park.image_url} alt={park.name} />
+        }
+        </div>
+        )})}
+    </section>
     </>
 }
