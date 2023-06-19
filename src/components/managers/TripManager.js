@@ -56,3 +56,22 @@ export const filterTripsBySearch = (searchTerm) => {
     })
         .then(response => response.json())
 }
+
+export const joinTrip = (tripId) => {
+    return fetch(`http://localhost:8000/trips/${tripId}/join`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+}
+
+export const leaveTrip = (tripId) => {
+    return fetch(`http://localhost:8000/trips/${tripId}/leave`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+}
