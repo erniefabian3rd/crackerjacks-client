@@ -20,3 +20,13 @@ export const getTeamDetails = (teamId) => {
     })
         .then(response => response.json())
 }
+
+export const filterTeamsBySearch = (searchTerm) => {
+    return fetch(`http://localhost:8000/teams?search=${searchTerm}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+        .then(response => response.json())
+}
+

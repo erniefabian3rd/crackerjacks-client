@@ -1,21 +1,45 @@
 import { useEffect, useState } from "react"
 import "./Parks.css"
-import { getParks } from "../managers/ParkManager"
+import { filterParksBySearch, getParks } from "../managers/ParkManager"
 import { useNavigate } from "react-router-dom"
 
 export const ParkList = () => {
     const [parks, setParks] = useState([])
     const navigate = useNavigate()
+    const [ filterBySearch, setFilterBySearch ] = useState()
+
+    const getAllParks = () => {
+        getParks()
+            .then((parksData) => {
+                setParks(parksData)
+        })
+    }
 
     useEffect(
         () => {
-            getParks()
-                .then((parksData) => setParks(parksData))
+            getAllParks()
         }, []
+    )
+
+    useEffect(
+        () => {
+            if (filterBySearch) {
+                filterParksBySearch(filterBySearch)
+                    .then((filteredData) => setParks(filteredData))
+            } else {
+                getAllParks()
+            }
+        }, [filterBySearch]
     )
 
     return <>
     <h1 className="parks_header">MLB Parks</h1>
+    <input type="text"
+                className="park_search_box"
+                placeholder="Search parks..."
+                onChange={(changeEvent) => {
+                    setFilterBySearch(changeEvent.target.value)
+                }} />
     <section className="parks_container">
     {
         parks.map((park) => {

@@ -51,6 +51,7 @@ export const TeamDetails = () => {
             <h3 className="team_name">{team.name}</h3>
             <h4 className="team_park">{team.park?.name}</h4>
             <div><b className="team_bio">Bio:</b> {team.bio}</div><br/>
+            <div className="team_division">{team.division?.name}</div>
             <div><b className="team_standing">Current Standing:</b> 40-26</div><br/>
             {user.favorite_team?.id === team.id
             ? <button className="favorite_btn" >Your Favorite Team</button>

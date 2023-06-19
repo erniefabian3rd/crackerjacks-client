@@ -34,3 +34,12 @@ export const unmarkParkAsVisited = (parkId) => {
         }
     })
 }
+
+export const filterParksBySearch = (searchTerm) => {
+    return fetch(`http://localhost:8000/parks?search=${searchTerm}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+        .then(response => response.json())
+}
