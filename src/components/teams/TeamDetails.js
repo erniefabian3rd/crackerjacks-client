@@ -3,10 +3,13 @@ import "./Teams.css"
 import { useParams } from "react-router-dom"
 import { getTeamDetails } from "../managers/TeamManager"
 import { getSelfDetails, updateProfileDetails } from "../managers/UserManager"
+import { getTeamRoster, getTeamSchedule } from "../managers/GameManager"
 
 
 export const TeamDetails = () => {
     const [team, setTeam] = useState({})
+    const [teamSchedule, setSchedule] = useState([])
+    const [teamRoster, setRoster] = useState([])
     const { teamId } = useParams()
     const [user, setUser] = useState({})
 
@@ -27,6 +30,23 @@ export const TeamDetails = () => {
         getSelfDetails()
             .then(userData => setUser(userData));
     }, []
+    )
+
+    useEffect(() => {
+        getTeamSchedule(teamId)
+            .then((scheduleData) => {
+                setSchedule(scheduleData.body.schedule)
+            })
+    }, [teamId]
+    )
+
+    useEffect(() => {
+        getTeamRoster(teamId)
+            .then((rosterData) => {
+                console.log(rosterData)
+                setRoster(rosterData.body.roster)
+            })
+    }, [teamId]
     )
 
     const handleMakeFavorite = () => {
@@ -61,21 +81,34 @@ export const TeamDetails = () => {
     </section>
     <section className="team_info_container">
         <div>
-            <h2 className="team_standings_header">Standings:</h2>
-            <div className="team_standings">
-                <p>Standings here</p>
-            </div>
-        </div>
-        <div>
-            <h2 className="team_news_header">Team News:</h2>
-            <div className="team_news">
-                <p>News here</p>
+            <h2 className="team_roster_header">Roster:</h2>
+            <div className="team_roster team-scrollable-box">
+            {teamRoster.map((roster) => {
+                return <>
+                <img src={roster.mlbHeadshot} />
+                <p>{roster.longName}</p>
+                <p>Position: {roster.pos}</p>
+                <p>Bat: {roster.bat}</p>
+                <p>Throw: {roster.throw}</p>
+                <p>Age: {roster.age}</p>
+                <p>Height: {roster.height}</p>
+                <p>Weight: {roster.weight}</p>
+                <p>College: {roster.college}</p>
+                </>
+            })
+
+            }
             </div>
         </div>
         <div>
             <h2 className="team_schedule_header">Schedule:</h2>
-            <div className="team_schedule">
-                <p>Schedule here</p>
+            <div className="team_schedule team-scrollable-box">
+                {teamSchedule.filter(game => game.gameStatus !== "Completed").map((game) => (
+                <div key={game.gameID}>
+                    <p>{game.away} @ {game.home}</p>
+                    <p>Date: {game.gameDate}</p>
+                </div>
+                ))}
             </div>
         </div>
     </section>

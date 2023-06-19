@@ -48,7 +48,7 @@ export const HomeFeed = () => {
                         }
                         return 0
                     })
-                    setSortedGames(sortedGames);
+                    setSortedGames(sortedGames)
                 }
             })
     }, []
