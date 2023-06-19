@@ -2,10 +2,12 @@ import { useEffect, useState } from "react"
 import { followerUser, getSelfDetails, getUserDetails, unfollowUser } from "../managers/UserManager"
 import "./UserProfile.css"
 import { useParams } from "react-router-dom"
+import { getParks } from "../managers/ParkManager"
 
 export const OtherUserProfile = () => {
     const {userId} = useParams()
     const [CJUser, setCJUser] = useState({})
+    const [parks, setParks] = useState([])
 
     const getSelectedUserDetails = () => {
         getUserDetails(userId)
@@ -19,6 +21,15 @@ export const OtherUserProfile = () => {
             getSelectedUserDetails()
         },
         [userId]
+    )
+
+    useEffect(
+        () => {
+            getParks()
+                .then((parkData) => {
+                    setParks(parkData)
+                })
+        }, []
     )
 
     const handleFollow = (userId) => {
@@ -53,5 +64,19 @@ export const OtherUserProfile = () => {
         </div>
     </section>
     <h2 className="visited_parks">Visited Parks</h2>
+    <section className="visited_parks_container">
+    {parks.map((park) => {
+        const visitedPark = CJUser.visited_parks.find(
+            (visitedPark) => visitedPark.park === park.id
+        )
+        return (
+        <div key={park.id}>
+        {visitedPark
+            ? <img className="visited_park_images" src={park.image_url} alt={park.name} />
+            : <img className="nonvisited_park_images" src={park.image_url} alt={park.name} />
+        }
+        </div>
+        )})}
+    </section>
     </>
 }

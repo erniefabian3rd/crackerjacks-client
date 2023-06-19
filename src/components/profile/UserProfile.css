@@ -36,3 +36,30 @@
 .follow_btn {
     margin-left: 75%;
 }
+
+.visited_parks_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.visited_park_images {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.nonvisited_park_images {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+}

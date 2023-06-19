@@ -15,3 +15,22 @@ export const getParkDetails = (parkId) => {
     })
         .then(response => response.json())
 }
+
+export const markParkAsVisited = (parkId) => {
+    return fetch(`http://localhost:8000/parks/${parkId}/visited`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+}
+
+export const unmarkParkAsVisited = (parkId) => {
+    return fetch(`http://localhost:8000/parks/${parkId}/unvisited`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("cj_token")}`
+        }
+    })
+}
