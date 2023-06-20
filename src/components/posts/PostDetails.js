@@ -105,7 +105,7 @@ export const PostDetails = () => {
                     <img className="comment_icon" src={commentbubble}></img>
                     <img className="message_icon" src={message}></img>
                     {post.may_edit_or_delete ? (<>
-                    <img className="gear_icon" src={gear} onClick={() => navigate(`posts/${post.id}/edit`)}/>
+                    <img className="gear_icon" src={gear} onClick={() => navigate(`/posts/${post.id}/edit`)}/>
                     <img className="trashcan_icon" src={trashcan} onClick={() => handleDeletePost(post.id)}/>
                     </>) : ""}
                 </div>
