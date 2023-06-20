@@ -17,11 +17,6 @@
 
 }
 
-.parks_header {
-    text-align: center;
-    margin-top: 150px;
-}
-
 .parks_image {
     width: 100%;
     height: auto;
@@ -42,16 +37,20 @@
 .parks_name {
     font-size: 20px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
 .parks_avg_rating {
     font-size: 14px;
     margin-top: 25px;
+    font-family: 'Archivo', sans-serif;
+    color: rgb(59, 59, 59);
 }
 
 .parks_location {
     margin-top: -15px;
-    font-size: 14px;
+    font-size: 15px;
+    font-family: 'Archivo', sans-serif;
 }
 
 .park_details {
@@ -92,4 +91,13 @@
 
 .leave_review_btn {
     margin-left: 75%;
+    margin-top: 13%;
+}
+
+.park_search_box {
+    margin-left: 6%;
+    height: 25px;
+    font-family: 'Archivo', sans-serif;
+    margin-top: 10%;
+    margin-bottom: 20px;
 }

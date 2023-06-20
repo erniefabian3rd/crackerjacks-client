@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import alt_logo from "../../images/crackerjacks-alt-logo.png"
 import "./NavBar.css"
 
 export const NavBar = () => {
@@ -6,34 +7,30 @@ export const NavBar = () => {
 
     return (
         <ul className="navbar">
-            <button className="navbar__item" onClick={() => {navigate('/')}}>
-                Home
-            </button>
-            <button className="navbar__item" onClick={() => {navigate('/parks')}}>
+            <img className="home_logo" src={alt_logo} onClick={() => {navigate('/')}}/>
+            <div className="nav_links">
+            <h3 className="navbar__item" onClick={() => {navigate('/parks')}}>
                 Parks
-            </button>
-            <button className="navbar__item" onClick={() => {navigate('/teams')}}>
+            </h3>
+            <h3 className="navbar__item" onClick={() => {navigate('/teams')}}>
                 Teams
-            </button>
-            <button className="navbar__item" onClick={() => {navigate('/trips')}}>
+            </h3>
+            <h3 className="navbar__item" onClick={() => {navigate('/trips')}}>
                 Trips
-            </button>
-            <button className="navbar__item" onClick={() => {navigate('/users')}}>
+            </h3>
+            <h3 className="navbar__item" onClick={() => {navigate('/users')}}>
                 Users
-            </button>
-            <button className="navbar__item" onClick={() => {navigate(`/myprofile`)}}>
+            </h3>
+            <h3 className="navbar__item" onClick={() => {navigate(`/myprofile`)}}>
                 Profile
-            </button>
+            </h3>
             {
                 (localStorage.getItem("cj_token") !== null) ?
-                    <li className="navbar__item">
-                        <button className="nav-link fakeLink"
-                            onClick={() => {
+                        <h3 className="navbar__item nav-link fakeLink" onClick={() => {
                                 localStorage.removeItem("cj_token")
                                 navigate('/login')
                             }}
-                        >Logout</button>
-                    </li> :
+                        >Logout</h3> :
                     <>
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Login</Link>
@@ -42,6 +39,7 @@ export const NavBar = () => {
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>
                     </>
-            }        </ul>
+            }        </div>
+            </ul>
     )
 }

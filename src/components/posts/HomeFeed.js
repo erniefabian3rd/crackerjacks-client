@@ -18,7 +18,7 @@ export const HomeFeed = () => {
     const [sortedGames, setSortedGames] = useState([])
     const [MLBTeams, setMLBTeams] = useState({})
     const [newsArticle, setNews] = useState([])
-    const [showCreateForm, setShowCreateForm] = useState(false);
+    const [showCreateForm, setShowCreateForm] = useState(false)
     const navigate = useNavigate()
     const [post, updateNewPost] = useState({
         imageURL: "",
@@ -175,16 +175,17 @@ export const HomeFeed = () => {
 
     return <>
     <section className="league_info_container" id="fixed-content">
-        <h3>League Scores</h3>
+        <h3 className="scores_header">League Scores</h3>
         <div className="todays_games_container scrollable-box">
         {sortedGames && sortedGames.map(([key, todaysGame]) => (
         <div key={key} className="todays_games">
-            <div>{todaysGame.currentInning}</div>
             <div className="teams_playing">
-            {todaysGame.gameStatus === "Not Started Yet"
-            ? <p className="start_time">{todaysGame.gameTime}</p>
-            : ""
-            }
+                <div>{todaysGame.currentInning}</div>
+                {todaysGame.gameStatus === "Not Started Yet"
+                ? <p className="start_time">{todaysGame.gameTime}</p>
+                : ""
+                }
+                <section className="teams_container">
                 <div className="away_team">
                     <img className="team_logo" src={getTeamLogo(todaysGame.teamIDAway)} alt="Team Logo" />
                     <p className="away_name">{todaysGame.away} {todaysGame.lineScore?.away.R}</p>
@@ -201,19 +202,20 @@ export const HomeFeed = () => {
                     : ""
                     }
                 </div>
+                </section>
             </div>
         </div>
         ))}
         </div>
-        <h3>League News</h3>
-        <div className="league_news_container scrollable-box">
+        <h3 className="news_header">League News</h3>
+        <div className="scrollable-box">
         {newsArticle.map((news) => {
-            return <div key={news.id}>
+            return <div className="league_news_container" key={news.id}>
                 <a className="article_link" href={news.link_url} target="_blank">
                     <h4 className="article_title">{news.title}</h4>
                 </a>
-                <p>{news.article}</p>
-                <p>{news.published_date}</p>
+                <p className="article_text">{news.article}</p>
+                <p className="article_date">Published: {news.published_date}</p>
             </div>
         })
         }
@@ -221,7 +223,6 @@ export const HomeFeed = () => {
     </section>
 
     <section className="posts_container" id="scrollable-content">
-        <h1 className="posts_header">Posts</h1>
         <section className="posts_action_items">
             <input type="text"
                 className="post_search_box"
@@ -230,7 +231,7 @@ export const HomeFeed = () => {
                     setFilterBySearch(changeEvent.target.value)
                 }} />
             <button className="create_post_btn" onClick={() => handleCreatePost()}>
-                {showCreateForm ? "Close" : "Create a Post"}
+                {showCreateForm ? "-" : "+"}
             </button>
         </section>
         {showCreateForm && (
@@ -238,12 +239,11 @@ export const HomeFeed = () => {
             <form className="post_form">
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="image">Post Image:</label>
-                    <div className="input__field">
+                    <div className="image_ip">
                         <input
                             required autoFocus
                             type="text"
-                            className="form-control"
+                            className="form-control-image"
                             placeholder="Image URL"
                             value={post.imageURL}
                             onChange={
@@ -258,7 +258,6 @@ export const HomeFeed = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="caption">Caption:</label>
                     <div className="input__field">
                         <textarea
                             required autoFocus
@@ -279,7 +278,7 @@ export const HomeFeed = () => {
             <button
                 onClick={(clickEvent) => {
                     submissionButton(clickEvent)}}
-                className="btn-submit"><b>
+                className="new_post_submit_btn"><b>
                     Submit
                 </b></button>
         </form>
@@ -290,7 +289,7 @@ export const HomeFeed = () => {
             return (
                 <div className="posts_info" key={`posts--${post.id}`}>
                     <div className="image_container">
-                        <img className="posts_profile_image" src={post.author.profile_image_url} alt="Profile Image" />
+                        <img className="posts_profile_image" src={post.author.profile_image_url} alt="Profile Image" onClick={() => navigate(`/profile/${post.author.id}`)}/>
                         <img className="posts_image" src={post.image_url} alt="Post Image" onDoubleClick={() => {post.is_liked ? handleUnlike(post.id) : handleLike(post.id)}}/>
                     </div>
                     <div className="posts_text_container">

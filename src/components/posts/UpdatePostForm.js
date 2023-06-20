@@ -31,16 +31,15 @@ export const UpdatePostForm = () => {
 
     return <>
     <h1 className="update_posts_header">Edit Post</h1>
-    <form className="post_form">
+    <form className="edit_post_form">
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="image">Post Image:</label>
                     <div className="input__field">
                         <input
                             name="image_url"
                             required autoFocus
                             type="text"
-                            className="form-control"
+                            className="form-control-image"
                             value={post.image_url}
                             onChange={changePostState} />
                     </div>
@@ -48,7 +47,6 @@ export const UpdatePostForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="caption">Caption:</label>
                     <div className="input__field">
                         <textarea
                             name="caption"
@@ -61,7 +59,7 @@ export const UpdatePostForm = () => {
                 </div>
             </fieldset>
 
-        <button className="btn btn-save"
+        <button className="edit_post_submit_btn btn btn-save"
         onClick={evt => {
             evt.preventDefault()
             
@@ -72,7 +70,7 @@ export const UpdatePostForm = () => {
             }
 
             updatePostDetails(updatedPost)
-            .then(() => window.alert("Your post has been updated")).then(() => navigate("/"))}}>
+            .then(() => window.alert("Your post has been successfully updated")).then(() => navigate("/"))}}>
             Save
         </button>
     </form>

@@ -59,30 +59,22 @@ export const Register = () => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Register an account</h1>
-                <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
+                <h2 className="h3 mb-3 font-weight-normal register_header">Register</h2>
+                <fieldset className="name_container">
+                    <input ref={firstName} type="text" name="firstName" className="form-control-first-name" placeholder="First name" required autoFocus />
+                    <input ref={lastName} type="text" name="lastName" className="form-control-last-name" placeholder="Last name" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="email"> Email </label>
                     <input ref={email} type="text" name="email" className="form-control" placeholder="Email" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="inputUsername">Username</label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="inputUsername">Profile Image</label>
                     <input ref={profileImage} type="text" name="profileImage" className="form-control" placeholder="Profile Image URL" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="favoriteTeam"> Favorite Team </label>
-                    <select ref={favoriteTeam} name="favoriteTeam" className="form-control">
+                    <select ref={favoriteTeam} name="favoriteTeam" className="form-control-select">
                         <option value="0">Choose your favorite team...</option>
                         {teams.map((team) => (
                                     <option key={team.id} value={team.id}>
@@ -92,15 +84,12 @@ export const Register = () => {
                     </select>
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="verifyPassword"> Bio </label>
-                    <textarea ref={bio} name="bio" className="form-control" placeholder="Let other users know a little bit about you..." />
+                    <textarea ref={bio} name="bio" className="form-control bio_text" placeholder="Let other users know a little bit about you..." />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="inputPassword"> Password </label>
                     <input ref={password} type="password" name="password" className="form-control" placeholder="Password" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="verifyPassword"> Verify Password </label>
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
                 </fieldset>
                 <fieldset style={{
@@ -108,10 +97,8 @@ export const Register = () => {
                 }}>
                     <button className="btn btn-1 btn-sep icon-send" type="submit">Register</button>
                 </fieldset>
+                <div className="login_link">Already registered? <Link to="/login">Login</Link></div>
             </form>
-            <section className="link--register">
-                Already registered? <Link to="/login">Login</Link>
-            </section>
         </main>
     )
 }

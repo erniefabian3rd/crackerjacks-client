@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap');
+body {
+    background-color: rgb(252, 252, 252);
+}
+
 #fixed-content {
     position: fixed;
     width: 35%;
     height: 100%;
-    background-color: white;
     box-shadow: 0px 0.1875rem 0.625rem;
     top: 0;
     align-items: center;
@@ -27,13 +32,10 @@
 .image_container {
     display: flex;
 }
+
 .posts_info {
     width: 400px;
-    margin: 10px auto 20px calc(50%);
-}
-
-.posts_header {
-    margin-left: 64%;
+    margin: 10px auto 20px 50%;
 }
 
 .posts_profile_image {
@@ -57,12 +59,16 @@
     margin-top: 10px;
     cursor: pointer;
     width: 100px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .posts_caption {
     border: 1px solid black;
+    border-radius: 10px;
     padding: 10px;
     margin-top: -5px;
+    font-size: 15px;
+    font-family: 'Archivo', sans-serif;
 }
 
 .posts_text_container {
@@ -112,31 +118,38 @@
 
 .posts_action_items {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-bottom: 50px;
+    margin-left: -35px;
 }
 
 .post_search_box {
     margin-left: 40%;
+    height: 25px;
+    font-family: 'Archivo', sans-serif;
 }
 
 .create_post_btn {
-    margin-right: 5%;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    color: white;
+    background-color: #133c6c;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 30px;
 }
 
-.create_posts_header {
-    text-align: center;
-    margin-top: 150px;
+.create_post_btn:hover {
+    background-color: #184982;
 }
 
 .update_posts_header {
     text-align: center;
-    margin-top: 150px;
-}
+    margin-top: 18%;
+    font-family: 'Roboto', sans-serif;
 
-.post_details_header {
-    text-align: center;
-    margin-top: 150px;
 }
 
 .post_details_container {
@@ -144,25 +157,36 @@
     flex-direction: column;
     align-items: center;
     margin-right: 50px;
+    margin-top: 12%;
 }
 
 .comments_container {
     border: 1px solid black;
+    border-radius: 10px;
     padding: 10px;
+    overflow-y: auto;
+    max-height: 100px;
+    height: 100px;
 }
 
 .comments_info {
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 90%;
 }
 
 .comments_author {
     margin-top: -10px;
     font-size: 15px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
 .comments_message {
     margin-top: -15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: 'Archivo', sans-serif;
 }
 
 .new_comment_container {
@@ -172,8 +196,16 @@
     justify-content: space-between;
 }
 
+.post_comment_box {
+    width: 300px;
+    height: 50px;
+    font-family: 'Archivo', sans-serif;
+}
+
 .post_like_count {
     margin-top: 10px;
+    font-size: 13px;
+    color: rgb(59, 59, 59);
 }
 
 .todays_games_container {
@@ -186,29 +218,33 @@
 
 .scrollable-box {
     overflow-y: auto;
-    max-height: 300px;
-    border: 1px solid black;
-    width: 75%;
+    max-height: 275px;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 10px;
+    width: 70%;
+    background-color: white;
 }
 
 .todays_games {
     display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
-    margin-top: 10px;
+    justify-content: center;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
 .away_team {
     display: flex;
     align-items: center;
-    margin-right: 100px;
+    margin-top: 30px;
+    justify-content: center;
+
 }
 
 .home_team {
     display: flex;
     align-items: center;
-    margin-right: 100px;
+    margin-top: -20px;
+    justify-content: center;
 }
 
 .team_logo {
@@ -220,24 +256,152 @@
 .away_name,
 .home_name {
     font-weight: bold;
+    margin-left: 5px;
 }
 
 .away_record,
 .home_record {
-    margin-left: 50px;
+    margin-left: 105px;
+    font-size: 13px;
+    color: gray;
+    text-align: left;
+}
+
+.league_news_container {
+    border-bottom: 1px solid gray;
+    border-width: 80%;
 }
 
 .article_title {
     cursor: pointer;
     color: black;
+    font-size: 18px;
+    text-align: left;
+    margin-left: 8%;
+    width: 85%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .article_link {
     text-decoration: none;
 }
 
+.article_text {
+    text-align: left;
+    font-size: 12px;
+    width: 85%;
+    margin-left: 8%;
+    margin-top: -20px;
+    color: rgb(59, 59, 59);
+    font-family: 'Archivo', sans-serif;
+}
+
+.article_date {
+    text-align: right;
+    font-size: 10px;
+    width: 85%;
+    margin-top: -5px;
+    margin-left: 8%;
+    font-weight: bold;
+    color: rgb(59,59,59);
+    margin-bottom: 20px;
+    font-family: 'Archivo', sans-serif;
+}
+
 .create_post_form {
     width: 400px;
     height: 250px;
-    margin-left: 55%;
+    margin-left: 54%;
+    margin-bottom: 50px;
+    margin-top: -30px;
+}
+
+.start_time {
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: grey;
+    font-weight: bold;
+}
+
+.teams_playing {
+    width: 250px;
+    height: 100px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.teams_container {
+    margin-top: -50px;
+    margin-left: -10px;
+}
+
+.scores_header {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: -220px;
+}
+
+.news_header {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: -220px;
+}
+
+.form-control-image {
+    width: 400px;
+    height: calc(1.5em + .75rem + 2px);
+    font-family: 'Archivo', sans-serif;
+}
+
+.form-control-caption {
+    width: 400px;
+    height: 100px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.new_post_submit_btn,
+.edit_post_submit_btn {
+    width: 408px;
+    height: 40px;
+    border: 1px solid #0c2340;
+    border-radius: 5px;
+    background-color: #133c6c;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.new_post_submit_btn:hover,
+.edit_post_submit_btn:hover,
+.new_comment_submit_btn:hover {
+    background-color: #184982;
+}
+
+.edit_post_form {
+    margin-left: 36%;
+}
+
+.new_comment_submit_btn {
+    background-color: #133c6c;
+    color: white;
+    border: 1px solid #0c2340;
+    border-radius: 5px;
+    width: 75px;
+    height: 45px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+.author_date_container {
+    display: flex;
+    justify-content: space-between;
 }

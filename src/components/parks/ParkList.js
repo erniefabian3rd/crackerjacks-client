@@ -33,7 +33,6 @@ export const ParkList = () => {
     )
 
     return <>
-    <h1 className="parks_header">MLB Parks</h1>
     <input type="text"
                 className="park_search_box"
                 placeholder="Search parks..."

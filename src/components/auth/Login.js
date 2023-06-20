@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./Auth.css"
 import { loginUser } from "../managers/AuthManager"
+import logo from "../../images/crackerjacks-logo.png"
 
 
 export const Login = () => {
@@ -37,14 +38,13 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Crackerjacks</h1>
-                    <h2>Please sign in</h2>
+                    <section className="login_info_container">
+                    <img className="login_logo" src={logo} />
+                    <h2 className="login_header">Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Username </label>
                         <input ref={username} type="username" id="username" className="form-control" placeholder="Username" required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <label htmlFor="inputPassword"> Password </label>
                         <input ref={password} type="password" id="password" className="form-control" placeholder="Password" required />
                     </fieldset>
                     <fieldset style={{
@@ -52,11 +52,11 @@ export const Login = () => {
                     }}>
                         <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
                     </fieldset>
+                    <Link to="/register" className="register_link">Not a member yet?</Link>
+                    </section>
                 </form>
             </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
-            </section>
+ 
         </main>
     )
 }

@@ -65,7 +65,6 @@ export const PostDetails = () => {
         createComment(commentToSendToAPI)
             .then(() => {
                 getAllFilteredComments()
-                alert("Your comment was successful!")
                 updateNewComment((prevComment) => ({
                 ...prevComment,
                 comment: ""
@@ -89,16 +88,15 @@ export const PostDetails = () => {
 
 
     return <>
-    <h1 className="post_details_header">Post Details</h1>
     <section className="post_details_container">
         <div className="image_container">
-            <img className="posts_profile_image" src={post.author?.profile_image_url} alt="Profile Image" />
+            <img className="posts_profile_image" src={post.author?.profile_image_url} alt="Profile Image" onClick={() => navigate(`/profile/${post.author.id}`)}/>
             <img className="posts_image" src={post.image_url} alt="Post Image" onDoubleClick={() => {post.is_liked ? handleUnlike(post.id) : handleLike(post.id)}}/>
         </div>
         <div className="posts_text_container">
             <div className="action_container">
                 <h3 className="posts_username" onClick={() => navigate(`/profile/${post.author.id}`)}>{post.author?.user.username}</h3>
-                <p className="post_like_count">Likes: {post.like_count}</p>
+                <p className="post_like_count"><b>Likes:</b> {post.like_count}</p>
                 <div className="action_icons">
                     {post.is_liked
                     ? <img className="heart_icon" src={filled_heart} onClick={() => handleUnlike(post.id)}></img>
@@ -141,7 +139,7 @@ export const PostDetails = () => {
                 <button
                     onClick={(clickEvent) => {
                         submissionButton(clickEvent)}}
-                    className="btn-submit">Send</button>
+                    className="new_comment_submit_btn btn-submit">Send</button>
             </div>
         </div>
     </section>
