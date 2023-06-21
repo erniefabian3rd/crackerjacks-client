@@ -84,32 +84,35 @@ export const ParkDetails = () => {
         }}
 
     return <>
-        <button className="leave_review_btn" onClick={() => navigate(`/parks/${park.id}/review`)}>Leave a Review</button>
+    <section className="park_buttons_container">
+        <button className="leave_review_btn" onClick={() => navigate(`/parks/${park.id}/review`)}>+</button>
         {park.is_visited === true
-        ? <button className="mark_visited_btn" onClick={() => handleUnmarkingAsVisited(park.id)}>Visited</button>
+        ? <button className="unmark_visited_btn" onClick={() => handleUnmarkingAsVisited(park.id)}>Visited</button>
         : <button className="mark_visited_btn" onClick={() => handleMarkingAsVisited(park.id)}>Mark as Visited</button>
         }
-        <section className="park_details">
+    </section>
+    <section className="park_details">
         <img className="park_image" src={park.image_url}></img>
         <div className="park_details_info">
-            <h3 className="park_name">{park.name}</h3>
-            <h4 className="park_team">{park.home_team?.name}</h4>
-            <div><b className="park_location">Location:</b> {park.location}</div><br/>
-            <div><b className="park_bio">Bio:</b> {park.bio}</div><br/>
-            <div><b className="park_capacity">Capacity:</b> {park.capacity}</div><br/>
+            <h2 className="park_name">{park.name}</h2>
+            <h4 className="park_team">Home of the {park.home_team?.name}</h4>
+            <div className="park_location"><b>Location:</b> {park.location}</div><br/>
+            <div className="park_bio"><b>Bio:</b> {park.bio}</div><br/>
+            <div className="park_capacity"><b>Capacity:</b> {park.capacity}</div><br/>
         </div>
     </section>
-    <section className="park_review_container">
-        <div>
-            <h2 className="park_review_header">Reviews:</h2>
+    <section className="park_review_rating_container">
+        <div className="park_review_container">
+            <h3 className="park_review_header">Reviews:</h3>
             {park.park_reviews && park.park_reviews.map((review) => {
                 return <div className="park_reviews" key={review.id}>
-                    <p>{review.review}</p>
+                    <p className="park_review_content">{review.review}</p>
+                    <p className="park_review_author"><b>-{review.user.user.username}</b></p>
                     </div>
             })}
         </div>
-        <div className="rating_container">
-            <h2 className="park_rating_header">Average Rating:</h2>
+        <div className="park_rating_container">
+            <h3 className="park_rating_header">Average Rating:</h3>
             <div className="star_container">
                 {handleStarRating(park)}
             </div>

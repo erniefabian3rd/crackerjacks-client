@@ -29,16 +29,15 @@ export const ParkReviewForm = () => {
     }
 
     return <>
-        <h1 className="parks_header">Review Form</h1>
+        <h1 className="review_park_header">Leave a Review</h1>
         <form className="review_form">
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="review">Review:</label>
                     <div className="input__field">
                         <textarea
                             required autoFocus
                             type="text"
-                            className="form-control"
+                            className="form-control-review"
                             placeholder="How'd you like the park?"
                             value={review.review}
                             onChange={
@@ -53,14 +52,12 @@ export const ParkReviewForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="rating">Park Rating:</label>
-                    <p>(1 - 5)</p>
                     <div className="input__field">
                         <input
                             required autoFocus
                             type="number"
-                            className="form-control"
-                            placeholder="Rating"
+                            className="form-control-rating"
+                            placeholder="Rating (1-5)"
                             value={review.rating}
                             min={0}
                             max={5}
@@ -77,7 +74,7 @@ export const ParkReviewForm = () => {
             <button
                 onClick={(clickEvent) => {
                     submissionButton(clickEvent)}}
-                className="btn-submit"><b>
+                className="new_review_submit_btn btn-submit"><b>
                     Submit
                 </b></button>
             </form>

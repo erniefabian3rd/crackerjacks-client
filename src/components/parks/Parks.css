@@ -66,17 +66,19 @@
     margin-left: 50px;
 }
 
-.park_review_container {
+.park_review_rating_container {
     display: flex;
-    margin-left: 400px;
     justify-content: space-evenly;
     margin-top: 50px;
 }
 
-.rating_container {
+.park_rating_container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 400px;
+    height: 150px;
+    padding: 20px;
+    margin-right: 13%;
 }
 
 .star_container {
@@ -85,13 +87,8 @@
 }
 
 .star_icon {
-    width: 5%;
+    width: 15%;
     height: auto;
-}
-
-.leave_review_btn {
-    margin-left: 75%;
-    margin-top: 13%;
 }
 
 .park_search_box {
@@ -100,4 +97,149 @@
     font-family: 'Archivo', sans-serif;
     margin-top: 10%;
     margin-bottom: 20px;
+}
+
+.park_name {
+    font-family: 'Roboto', sans-serif;
+}
+
+.park_team,
+.park_location,
+.park_bio,
+.park_capacity {
+    font-family: 'Archivo', sans-serif;
+}
+
+.park_review_header {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.park_rating_header {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.park_review_container {
+    width: 390px;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 150px;
+    height: 150px;
+    background-color: white;
+    margin-left: 18.5%;
+}
+
+.park_reviews {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.park_review_author {
+    font-size: 12px;
+    text-align: right;
+    margin-right: 5px;
+    color: rgb(59, 59, 59);
+}
+
+.park_buttons_container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 11%;
+}
+
+.leave_review_btn {
+    margin-left: 21%;
+    color: white;
+    background-color: #133c6c;
+    border: none;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.leave_review_btn:hover {
+    background-color: #184982;
+}
+
+.mark_visited_btn {
+    margin-right: 21%;
+    color: white;
+    background-color: #133c6c;
+    border: none;
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+}
+
+.mark_visited_btn:hover {
+    background-color: #184982;
+}
+
+.unmark_visited_btn {
+    margin-right: 21%;
+    color: white;
+    background-color: #0f5714;
+    border: none;
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+}
+
+.unmark_visited_btn:hover {
+    background-color: #14741b;
+}
+
+.review_park_header {
+    text-align: center;
+    margin-top: 18%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-control-review {
+    width: 400px;
+    height: 100px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.form-control-rating {
+    width: 400px;
+    height: calc(1.5em + .75rem + 2px);
+    font-family: 'Archivo', sans-serif;
+    margin-bottom: 10px;
+}
+
+.new_review_submit_btn {
+    width: 408px;
+    height: 40px;
+    border: 1px solid #0c2340;
+    border-radius: 5px;
+    background-color: #133c6c;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.new_review_submit_btn:hover {
+    background-color: #184982;
+}
+
+.review_form {
+    margin-left: 36%;
 }
