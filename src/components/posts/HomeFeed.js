@@ -45,10 +45,10 @@ export const HomeFeed = () => {
             .then((todaysGameData) => {
                 if (todaysGameData.body) {
                     const sortedGames = Object.entries(todaysGameData.body).sort(([, a], [, b]) => {
-                        if (a.gameStatus < b.gameStatus) {
+                        if (a.gameStatus > b.gameStatus) {
                             return 1
                         }
-                        if (a.gameStatus > b.gameStatus) {
+                        if (a.gameStatus < b.gameStatus) {
                             return -1
                         }
                         return 0
@@ -180,29 +180,53 @@ export const HomeFeed = () => {
         {sortedGames && sortedGames.map(([key, todaysGame]) => (
         <div key={key} className="todays_games">
             <div className="teams_playing">
-                <div>{todaysGame.currentInning}</div>
-                {todaysGame.gameStatus === "Not Started Yet"
-                ? <p className="start_time">{todaysGame.gameTime}</p>
-                : ""
-                }
-                <section className="teams_container">
+            {todaysGame.gameStatus === "Not Started Yet"
+            ? <>
+            <p className="start_time">{todaysGame.gameTime}</p>
+            <section className="teams_container">
                 <div className="away_team">
                     <img className="team_logo" src={getTeamLogo(todaysGame.teamIDAway)} alt="Team Logo" />
-                    <p className="away_name">{todaysGame.away} {todaysGame.lineScore?.away.R}</p>
-                    {todaysGame.gameStatus === "Not Started Yet"
-                    ? <p className="away_record">{getTeamRecord(todaysGame.teamIDAway)}</p>
-                    : ""
-                    }
+                    <p className="away_name">{todaysGame.away}</p>
+                    <p className="away_record">{getTeamRecord(todaysGame.teamIDAway)}</p>
                 </div>
                 <div className="home_team">
                     <img className="team_logo" src={getTeamLogo(todaysGame.teamIDHome)} alt="Team Logo" />
-                    <p className="home_name">{todaysGame.home} {todaysGame.lineScore?.home.R}</p>
-                    {todaysGame.gameStatus === "Not Started Yet"
-                    ? <p className="home_record">{getTeamRecord(todaysGame.teamIDHome)}</p>
-                    : ""
-                    }
+                    <p className="home_name">{todaysGame.home}</p>
+                    <p className="home_record">{getTeamRecord(todaysGame.teamIDHome)}</p>
                 </div>
-                </section>
+            </section>
+            </>
+            : <>
+            <p className="current_inning">{todaysGame.currentInning}</p>
+            <section className="teams_container_live">
+                <div className="away_team_live">
+                    <div className="logo_and_name">
+                        <img className="team_logo" src={getTeamLogo(todaysGame.teamIDAway)} alt="Team Logo" />
+                        <p className="away_name">{todaysGame.away}</p>
+                    </div>
+                    <div className="just_score">
+                        <p className="away_score">{todaysGame.lineScore?.away.R}</p>
+                    </div>
+                </div>
+                <div className="home_team_live">
+                    <div className="logo_and_name">
+                        <img className="team_logo" src={getTeamLogo(todaysGame.teamIDHome)} alt="Team Logo" />
+                        <p className="home_name">{todaysGame.home}</p>
+                    </div>
+                    <div className="just_score">
+                        <p className="home_score">{todaysGame.lineScore?.home.R}</p>
+                    </div>
+                </div>
+                {todaysGame.gameStatus === "Live - In Progress"
+                ? <>
+                <p className="current_count">{todaysGame.currentCount}</p>
+                <p className="current_outs">{todaysGame.currentOuts} Outs</p>
+                </>
+                : ""
+                }
+            </section>
+            </>
+            }
             </div>
         </div>
         ))}

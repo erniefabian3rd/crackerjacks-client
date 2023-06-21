@@ -24,7 +24,6 @@ export const TripDetails = () => {
     const handleJoinTrip = (tripId) => {
         joinTrip(tripId)
             .then(() => {
-                window.alert(`You have successfully joined the trip to ${trip.location}`)
                 getSelectedTripDetails()
             })
     }
@@ -37,15 +36,27 @@ export const TripDetails = () => {
             })
     }
 
+
+    const formatDate = (dateString) => {
+        if(dateString) {
+        const day = dateString.slice(5, 7)
+        const month = dateString.slice(8, 10)
+        const year = dateString.slice(0, 4)
+        return `${day}/${month}/${year}`
+        } else {
+            return ""
+        }
+    }
+
     return <>
-    <h1 className="trips_header">Trip Details</h1>
         <section className="trip_details">
         <img className="trip_image" src={trip.image_url}></img>
         <div className="trip_details_info">
-            <h3 className="trip_name">{trip.name}</h3>
-            <div><b className="trip_date">Date:</b> {trip.date}</div><br/>
-            <div><b className="trip_location">Location:</b> {trip.location}</div><br/>
-            <div><b className="trip_information">Details:</b> {trip.details}</div><br/>
+            <h3 className="trip_title">{trip.title}</h3><br/>
+            <div className="trip_date"><b>Date:</b> {formatDate(trip.date)}</div><br/>
+            <div className="trip_location"><b>Location:</b> {trip.location}</div><br/>
+            <div className="trip_information"><b>Details:</b> {trip.details}</div><br/>
+            <div className="trip_guest_count"><b>Guest Count:</b> {trip.guest_count}</div><br/>
         </div>
     </section>
     {trip.is_joined

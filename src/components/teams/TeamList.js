@@ -33,21 +33,20 @@ export const TeamList = () => {
     )
 
     return <>
-    <h1 className="teams_header">MLB Teams</h1>
-    <section className="team_filters">
     <input type="text"
                 className="team_search_box"
                 placeholder="Search teams..."
                 onChange={(changeEvent) => {
                     setFilterBySearch(changeEvent.target.value)
                 }} />
-    </section>
     <section className="teams_container">
     {
         teams.map((team) => {
             return (
                 <div className="teams_info" key={`teams--${team.id}`}>
+                    <div className="team_image_container">
                     <img className="teams_image" src={team.image_url} alt="Team Logo" onClick={() => navigate(`/teams/${team.id}`)}/>
+                    </div>
                     <div className="teams_text">
                         <h3 className="teams_name" onClick={() => navigate(`/teams/${team.id}`)}>{team.name}</h3>
                         <p className="teams_location">{team.park.name}</p>

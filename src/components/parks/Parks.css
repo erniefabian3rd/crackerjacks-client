@@ -110,12 +110,7 @@
     font-family: 'Archivo', sans-serif;
 }
 
-.park_review_header {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    margin-top: 0px;
-}
-
+.park_review_header,
 .park_rating_header {
     font-family: 'Roboto', sans-serif;
     text-align: center;
@@ -176,7 +171,7 @@
     color: white;
     background-color: #133c6c;
     border: none;
-    border-radius: 10px;
+    border-radius: 4px;
     width: 80px;
     height: 40px;
     font-size: 13px;
@@ -193,7 +188,7 @@
     color: white;
     background-color: #0f5714;
     border: none;
-    border-radius: 10px;
+    border-radius: 4px;
     width: 80px;
     height: 40px;
     font-size: 18px;

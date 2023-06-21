@@ -32,16 +32,15 @@ export const TripForm = () => {
     }
 
     return <>
-    <h1 className="trips_header">Trip Form</h1>
-        <form className="trip_form">
+    <h1 className="create_trips_header">Trip Form</h1>
+        <form className="create_trip_form">
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Trip Title:</label>
                     <div className="input__field">
                         <input
                             required autoFocus
                             type="text"
-                            className="form-control"
+                            className="form-control-trip-title"
                             placeholder="Title of Trip"
                             value={trip.title}
                             onChange={
@@ -56,12 +55,11 @@ export const TripForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="date">Date of Trip:</label>
                     <div className="input__field">
                         <input
                             required autoFocus
                             type="date"
-                            className="form-control"
+                            className="form-control-trip-date"
                             placeholder="Date"
                             value={trip.date}
                             onChange={
@@ -76,12 +74,11 @@ export const TripForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="location">Trip Destination:</label>
                     <div className="input__field">
                         <input
                             required autoFocus
                             type="text"
-                            className="form-control"
+                            className="form-control-trip-location"
                             placeholder="Location"
                             value={trip.location}
                             onChange={
@@ -96,12 +93,11 @@ export const TripForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="details">Trip Details:</label>
                     <div className="input__field">
                         <textarea
                             required autoFocus
                             type="text"
-                            className="form-control-details"
+                            className="form-control-trip-details"
                             placeholder="Tell others about the trip..."
                             value={trip.details}
                             onChange={
@@ -116,12 +112,11 @@ export const TripForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="image_url">Trip Image:</label>
                     <div className="input__field">
                         <input
                             required autoFocus
                             type="text"
-                            className="form-control"
+                            className="form-control-trip-image"
                             placeholder="Upload an image for the trip"
                             value={trip.imageURL}
                             onChange={
@@ -139,7 +134,7 @@ export const TripForm = () => {
             <button
                 onClick={(clickEvent) => {
                     submissionButton(clickEvent)}}
-                className="btn-submit"><b>
+                className="create_trip_submit_btn btn-submit"><b>
                     Submit
                 </b></button>
         </form>

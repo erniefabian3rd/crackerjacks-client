@@ -226,6 +226,7 @@ body {
 
 .todays_games {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 15px;
     margin-bottom: 10px;
@@ -235,15 +236,43 @@ body {
     display: flex;
     align-items: center;
     margin-top: 30px;
-    justify-content: center;
+}
 
+.away_team_live {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    margin-left: 15px;
 }
 
 .home_team {
     display: flex;
     align-items: center;
     margin-top: -20px;
-    justify-content: center;
+}
+
+.home_team_live {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    margin-left: 15px;
+}
+
+.logo_and_name {
+    display: flex;
+    align-items: center;
+}
+
+.just_score {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 110px;
+    font-weight: bold;
+}
+
+.just_score p {
+    margin: 0;
 }
 
 .team_logo {
@@ -264,6 +293,20 @@ body {
     font-size: 13px;
     color: gray;
     text-align: left;
+}
+
+.current_count {
+    margin-top: -62px;
+    margin-left: 165px;
+    color: gray;
+    font-size: 13px;
+}
+
+.current_outs {
+    margin-top: -3px;
+    margin-left: 170px;
+    color: gray;
+    font-size: 13px;
 }
 
 .league_news_container {
@@ -336,7 +379,15 @@ body {
 .teams_container {
     margin-top: -50px;
     margin-left: -10px;
+    display: flex;
+    flex-direction: column;
 }
+
+.teams_container_live {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .scores_header {
     font-family: 'Roboto', sans-serif;
@@ -403,4 +454,14 @@ body {
 .author_date_container {
     display: flex;
     justify-content: space-between;
+}
+
+.current_inning {
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: rgb(212, 0, 0);
+    font-weight: bold;
 }

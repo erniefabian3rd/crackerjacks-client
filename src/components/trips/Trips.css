@@ -11,11 +11,6 @@
 
 }
 
-.trips_header {
-    text-align: center;
-    margin-top: 150px;
-}
-
 .trips_image {
     width: 400px;
     height: 250px;
@@ -27,6 +22,7 @@
     font-size: 20px;
     text-align: center;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
 .trips_location {
@@ -36,7 +32,8 @@
 .trips_action_items {
     display: flex;
     justify-content: space-between;
-    margin: 0px 50px 20px 50px;
+    margin-top: 10%;
+    margin-bottom: 20px;
 }
 
 .trip_image {
@@ -45,12 +42,32 @@
     border-radius: 5px;
 }
 
+.trips_organizer {
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+}
+
+.trips_date,
+.trips_location {
+    font-family: 'Archivo', sans-serif;
+}
+
 .trip_details {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 20%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.trip_title {
+    font-family: 'Roboto', sans-serif;
+}
+
+.trip_date,
+.trip_location,
+.trip_information {
+    font-family: 'Archivo', sans-serif;
 }
 
 .trip_details_info {
@@ -60,8 +77,104 @@
 
 .join_trip_btn {
     margin-left: 75%;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #133c6c;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+}
+    
+.join_trip_btn:hover {
+    background-color: #184982;
+
+}
+
+.trip_search_box {
+    margin-left: 6%;
+    height: 25px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.create_trip_btn {
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    color: white;
+    background-color: #133c6c;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 6%;
+}
+
+.create_trip_btn:hover {
+    background-color: #184982;
 }
 
 .leave_trip_btn {
     margin-left: 75%;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #0f5714;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+}
+
+.leave_trip_btn:hover {
+    background-color: #14741b;
+}
+
+.create_trips_header,
+.edit_trips_header {
+    text-align: center;
+    margin-top: 13%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-control-trip-title,
+.form-control-trip-date,
+.form-control-trip-location,
+.form-control-trip-image {
+    width: 400px;
+    height: calc(1.5em + .75rem + 2px);
+    font-family: 'Archivo', sans-serif;
+}
+
+.form-control-trip-details {
+    width: 400px;
+    height: 100px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.create_trip_submit_btn,
+.edit_trip_submit_btn {
+    width: 408px;
+    height: 40px;
+    border: 1px solid #0c2340;
+    border-radius: 5px;
+    background-color: #133c6c;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.create_trip_submit_btn:hover,
+.edit_trip_submit_btn:hover {
+    background-color: #184982;
+}
+
+.create_trip_form,
+.edit_trip_form {
+    margin-left: 36%;
 }

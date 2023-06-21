@@ -8,17 +8,12 @@
 
 .teams_info {
     width: 400px;
-    margin: 0px 15px 40px 15px;
+    margin: 0px 15px 70px 15px;
     text-align: center;
-}
-
-.teams_header {
-    text-align: center;
-    margin-top: 150px;
 }
 
 .teams_image {
-    width: 100%;
+    width: 125%;
     height: auto;
     max-width: 400px; 
     max-height: 400px;
@@ -28,6 +23,12 @@
     cursor: pointer;
 }
 
+.team_image_container {
+    width: 250px;
+    height: 250px;
+    margin-left: 10%;
+}
+
 .teams_text {
     margin-top: -100px;
 }
@@ -35,6 +36,8 @@
 .teams_name {
     font-size: 20px;
     cursor: pointer;
+    margin-top: 35px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .teams_avg_rating {
@@ -46,14 +49,15 @@
     margin-top: -15px;
     font-size: 14px;
     font-style: italic;
+    font-family: 'Archivo', sans-serif;
 }
 
 .team_details {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -40px;
 }
 
 
@@ -73,18 +77,164 @@
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.team_schedule, .team_roster {
-    border: 2px solid black;
+.team_schedule_container {
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 10px;
+    background-color: white;
     padding: 10px;
-    height: 400px;
-    width: 250px;
+    height: 200px;
+    overflow-y: auto;
+    width: 400px;
+    max-height: 200px;
 }
 
-.team-scrollable-box {
+.team_roster_container {
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
     overflow-y: auto;
-    border: 2px solid black;
-    width: 250px;
-    height: 400px;
+    width: 400px;
+    max-height: 200px;
+    margin-right: -150px;
+}
+
+.team_roster {
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    height: 200px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+
+.player_name {
+    text-align: left;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.player_position,
+.player_bat,
+.player_throw,
+.player_birthday,
+.player_height,
+.player_weight,
+.player_college {
+    margin-top: -10px;
+    font-size: 14px;
+    text-align: left;
+    font-family: 'Archivo', sans-serif;
+    color: rgb(78, 78, 78);
+}
+
+.team_schedule {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+    text-align: left;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    width: 300px;
+}
+
+.team_search_box {
+    margin-left: 6%;
+    height: 25px;
+    font-family: 'Archivo', sans-serif;
+    margin-top: 10%;
+    margin-bottom: 110px;
+}
+
+.team_name {
+    font-family: 'Roboto', sans-serif;
+}
+
+.team_schedule_teams {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+}
+
+.schedule_detail_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.team_schedule_date {
+    font-family: 'Archivo', sans-serif;
+    color: rgb(78, 78, 78);
+    font-size: 14px;
+}
+
+.team_schedule_time {
+    font-family: 'Archivo', sans-serif;
+    color: rgb(78, 78, 78);
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+.team_park,
+.team_bio,
+.team_standing {
+    font-family: 'Archivo', sans-serif;
+}
+
+.make_favorite_team_btn {
+    margin-left: 72%;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #133c6c;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+}
+
+.make_favorite_team_btn:hover {
+    background-color: #184982;
+}
+
+.favorite_team_btn {
+    margin-left: 72%;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #0f5714;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+}
+
+.favorite_team_btn:hover {
+    background-color: #14741b;
+}
+
+.team_favorite_container {
+    margin-top: 11%;
+}
+
+.team_roster_header {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-top: 0px;
+    margin-left: 150px;
+}
+
+.team_schedule_header {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-top: 0px;
 }
