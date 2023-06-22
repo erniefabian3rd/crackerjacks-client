@@ -1,14 +1,13 @@
-.profile_header,
 .users_header {
     text-align: center;
-    margin-top: 150px;
+    margin-top: 10%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .profile_details {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-
+    margin-top: 13%;
 }
 
 .profile_image {
@@ -18,6 +17,13 @@
     cursor: pointer;
 }
 
+.my_profile_image,
+.other_profile_image {
+    width: 30%;
+    height: auto;
+    border-radius: 5px;
+}
+
 .profile_details_info {
     display: flex;
     flex-direction: column;
@@ -25,9 +31,10 @@
     margin-left: 100px;
 }
 
-.visited_parks {
+.visited_parks_header {
     text-align: center;
     margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .create_post_button {
@@ -73,6 +80,18 @@
     width: 400px;
 }
 
+.all_users_container {
+    display: flex;
+    margin-left: 4%;
+}
+
+.user_search_box {
+    margin-left: 6%;
+    height: 25px;
+    font-family: 'Archivo', sans-serif;
+    margin-bottom: 60px;
+}
+
 .profile_info_container {
     display: flex;
     flex-direction: column;
@@ -89,10 +108,119 @@
 
 .profile_username {
     cursor: pointer;
-    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.my_profile_username {
+    font-family: 'Roboto', sans-serif;
+    margin-top:0px;
+}
+
+.other_profile_username {
+    font-family: 'Roboto', sans-serif;
+    margin-top:0px;
 }
 
 .profile_fav_team,
 .profile_member_since {
     margin-top: -15px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.profile_full_name {
+    font-family: 'Roboto', sans-serif;
+}
+
+.profile_team,
+.profile_bio {
+    font-family: 'Archivo', sans-serif;
+}
+
+.other_users_container {
+    margin-top: 12%;
+}
+
+.other_profile_details {
+    display: flex;
+    justify-content: center;
+}
+
+.follow_user_btn {
+    margin-left: 75%;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #133c6c;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+}
+    
+.follow_user_btn:hover {
+    background-color: #184982;
+}
+
+.following_user_btn {
+    margin-left: 75%;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #0f5714;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+}
+
+.following_user_btn:hover {
+    background-color: #14741b;
+}
+
+.edit_profile_header {
+    text-align: center;
+    margin-top: 13%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-control-profile-image {
+    width: 400px;
+    height: calc(1.5em + .75rem + 2px);
+    font-family: 'Archivo', sans-serif;
+}
+
+.form-control-profile-team {
+    width: 407px;
+    height: calc(1.5em + .75rem + 2px);
+    font-family: 'Archivo', sans-serif;
+}
+
+.form-control-profile-bio {
+    width: 400px;
+    height: 100px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.edit_profile_submit_btn {
+    width: 408px;
+    height: 40px;
+    border: 1px solid #0c2340;
+    border-radius: 5px;
+    background-color: #133c6c;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.edit_profile_submit_btn:hover {
+    background-color: #184982;
+}
+
+.edit_profile_form {
+    margin-left: 36%;
 }

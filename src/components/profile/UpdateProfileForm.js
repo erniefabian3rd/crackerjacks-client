@@ -41,17 +41,16 @@ export const UpdateProfileForm = () => {
         }
 
     return <>
-    <h1 className="profile_header">Edit Profile</h1>
-    <form className="profile_form">
+    <h1 className="edit_profile_header">Edit Profile</h1>
+    <form className="edit_profile_form">
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="bio">Bio:</label>
                     <div className="input__field">
                         <textarea
                             name="bio"
                             required autoFocus
                             type="text"
-                            className="form-control-caption"
+                            className="form-control-profile-bio"
                             value={profile.bio}
                             onChange={changeUserState} />
                     </div>
@@ -59,24 +58,22 @@ export const UpdateProfileForm = () => {
             </fieldset>        
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="profile_image">Profile Image:</label>
                     <div className="input__field">
                         <input
                             name="profile_image_url"
                             required autoFocus
                             type="text"
-                            className="form-control"
+                            className="form-control-profile-image"
                             value={profile.profile_image_url}
                             onChange={changeUserState} />
                     </div>
                 </div>
             </fieldset>
             <fieldset>
-                    <label htmlFor="favorite_team"> Favorite Team </label>
                     <select 
                         value={profile.favorite_team}
                         name="favorite_team" 
-                        className="form-control"
+                        className="form-control-profile-team"
                         onChange={changeUserState}>
                         <option value="0">Choose your favorite team...</option>
                         {teams.map((team) => (
@@ -87,7 +84,7 @@ export const UpdateProfileForm = () => {
                     </select>
                 </fieldset>
 
-            <button className="btn btn-save"
+            <button className="edit_profile_submit_btn btn-save"
             onClick={evt => {
             evt.preventDefault()
             

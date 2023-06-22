@@ -35,7 +35,6 @@ export const OtherUserProfile = () => {
     const handleFollow = (userId) => {
         followerUser(userId)
             .then(() => {
-                window.alert(`You are now following ${CJUser.user.username}`)
                 getSelectedUserDetails()
             })
     }
@@ -49,21 +48,21 @@ export const OtherUserProfile = () => {
     }
 
     return <>
-    <h1 className="profile_header">Profile</h1>
+    <section className="other_users_container">
     {CJUser.is_followed
-    ? <button className="follow_btn" onClick={() => handleUnfollow(CJUser.id)}>Unfollow</button>
-    : <button className="follow_btn" onClick={() => handleFollow(CJUser.id)}>Follow</button>
+    ? <button className="following_user_btn" onClick={() => handleUnfollow(CJUser.id)}>Following</button>
+    : <button className="follow_user_btn" onClick={() => handleFollow(CJUser.id)}>Follow</button>
     }
-    <section className="profile_details">
-        <img className="profile_image" src={CJUser?.profile_image_url}></img>
+    <section className="other_profile_details">
+        <img className="other_profile_image" src={CJUser?.profile_image_url}></img>
         <div className="profile_details_info">
             <h3 className="profile_full_name">{CJUser.user?.first_name} {CJUser.user?.last_name}</h3>
-            <h4 className="profile_username">@{CJUser.user?.username}</h4>
+            <h4 className="other_profile_username">@{CJUser.user?.username}</h4>
             <div><b className="profile_team">Favorite Team:</b> {CJUser.favorite_team?.name}</div>
             <div><b className="profile_bio">Bio:</b> {CJUser.bio}</div><br/>
         </div>
     </section>
-    <h2 className="visited_parks">Visited Parks</h2>
+    <h2 className="visited_parks_header">Visited Parks</h2>
     <section className="visited_parks_container">
     {parks.map((park) => {
         const visitedPark = CJUser.visited_parks.find(
@@ -77,6 +76,7 @@ export const OtherUserProfile = () => {
         }
         </div>
         )})}
+    </section>
     </section>
     </>
 }

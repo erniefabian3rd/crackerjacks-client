@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Crackerjacks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Plan, Connect, Explore - Your Ultimate Baseball Park Companion.
 
-## Available Scripts
+## Application Overview
 
-In the project directory, you can run:
+As a lifelong baseball fan and member of a sports family, my dad, brother, wife, and me take a trip each year around Father’s Day to watch a few games at a baseball park that we have not yet visited. When planning for the trip as team schedules are released, we are left to spend countless hours doing our own research, answering questions like: What teams are playing multiple games in a row? What does the stadium look like? Is it highly rated or potentially a waste of money? Etc.
 
-### `npm start`
+Though Google and a Facebook post asking for recommendations tend to be helpful when making our decision, what if there was a website/application that was a one-stop-shop for those planning their own family baseball trip? This is where Crackerjacks comes into play.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Crackerjacks is a React/Django application that gives baseball enthusiasts access to team information, park details and photos, average user ratings, and social interaction with other baseball fans/users. Ultimately, the goal of Crackerjacks is to take the stress out of planning a family trip and make it fun and enjoyable for everyone involved.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*Favorite Team Selection
+*Team Information: Standings, schedules, rosters, scores
+*Park Details: Photos, specifications and details, reviews, average user ratings
+*Ability to contribute to average rating (5 star rating system)
+*Social media aspect: Post photos with captions of the parks/trip, follow other users, comment/react to other posts, message other users
+*Personal profile page: User details/photo, favorite team selection, visited ballparks, etc.
+*Create/signup for trips/meetups
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+*ReactJS
+*HTML
+*CSS
+*JavaScript
+*Python/Django
+*Git/Github
+*VSCode
+*Figma
+*dbDiagram
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Running the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone this repository and change the directory in the terminal
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`git clone git@github.com:erniefabian3rd/crackerjacks-client.git`
+`cd crackerjacks-client`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Access the server
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[Server-side Code](https://github.com/erniefabian3rd/crackerjacks-server)
 
-## Learn More
+3. Launch the client
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`npm install`
+`npm start`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## ERD
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![alt text](https://i.imgur.com/w83nAAI.png "Crackerjacks ERD")
 
-### Analyzing the Bundle Size
+## Application Images
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![alt text](https://i.imgur.com/pEy5yS4.jpg "Crackerjacks Login")
 
-### Making a Progressive Web App
+![alt text](https://i.imgur.com/JPJSlzD.png "Home Feed")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![alt text](https://i.imgur.com/43R777m.jpg "Park List")
 
-### Advanced Configuration
+![alt text](https://i.imgur.com/1or1P5M.png "Park Details")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![alt text](https://i.imgur.com/JCU1j5X.png "Team List")
 
-### Deployment
+![alt text](https://i.imgur.com/lrTTz0B.png "Team Details")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![alt text](https://i.imgur.com/FQ6WSgs.png "Trip List")
 
-### `npm run build` fails to minify
+![alt text](https://i.imgur.com/dzxk26B.png "User Profile")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Created by Ernie Fabian
+
+[Github](https://www.github.com/erniefabian3rd)
+[LinkedIn](https://www.linkedin.com/in/erniefabian3rd/)
