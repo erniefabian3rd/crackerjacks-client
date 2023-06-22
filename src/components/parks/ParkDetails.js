@@ -27,7 +27,6 @@ export const ParkDetails = () => {
     const handleMarkingAsVisited = (parkId) => {
         markParkAsVisited(parkId)
             .then(() => {
-                window.alert(`You have successfully marked ${park.name} as visited!`)
                 getSelectedParkDetails()
             })
     }

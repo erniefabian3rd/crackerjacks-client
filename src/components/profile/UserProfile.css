@@ -83,6 +83,7 @@
 .all_users_container {
     display: flex;
     margin-left: 4%;
+    flex-wrap: wrap;
 }
 
 .user_search_box {
@@ -134,6 +135,7 @@
 .profile_team,
 .profile_bio {
     font-family: 'Archivo', sans-serif;
+    width: 350px;
 }
 
 .other_users_container {

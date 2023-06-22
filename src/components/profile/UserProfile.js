@@ -37,7 +37,7 @@ export const UserProfile = () => {
         <div className="profile_details_info">
             <h3 className="profile_full_name">{CJUser.user.first_name} {CJUser.user.last_name}</h3>
             <h4 className="my_profile_username">@{CJUser.user.username}</h4>
-            <div className="profile_team"><b>Favorite Team:</b> {CJUser.favorite_team.name}</div>
+            <div className="profile_team"><b>Favorite Team:</b> {CJUser.favorite_team.name}</div><br/>
             <div className="profile_bio"><b>Bio:</b> {CJUser.bio}</div><br/>
             <img className="gear_icon" src={gear} onClick={() => navigate(`/profile/${CJUser.id}/edit`)}></img>
         </div>
