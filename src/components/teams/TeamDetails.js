@@ -43,7 +43,6 @@ export const TeamDetails = () => {
     useEffect(() => {
         getTeamRoster(teamId)
             .then((rosterData) => {
-                console.log(rosterData)
                 setRoster(rosterData.body.roster)
             })
     }, [teamId]

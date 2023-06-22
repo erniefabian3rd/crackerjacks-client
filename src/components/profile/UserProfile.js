@@ -31,8 +31,6 @@ export const UserProfile = () => {
         return null
     }
 
-    console.log(CJUser.visited_parks)
-
     return <>
     <section className="profile_details">
         <img className="my_profile_image" src={CJUser?.profile_image_url}></img>
