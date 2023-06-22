@@ -40,6 +40,7 @@ Crackerjacks is a React/Django application that gives baseball enthusiasts acces
 1. Clone this repository and change the directory in the terminal
 
 `git clone git@github.com:erniefabian3rd/crackerjacks-client.git`
+
 `cd crackerjacks-client`
 
 2. Access the server
@@ -49,6 +50,7 @@ Crackerjacks is a React/Django application that gives baseball enthusiasts acces
 3. Launch the client
 
 `npm install`
+
 `npm start`
 
 
@@ -77,4 +79,5 @@ Crackerjacks is a React/Django application that gives baseball enthusiasts acces
 ## Created by Ernie Fabian
 
 [Github](https://www.github.com/erniefabian3rd)
+
 [LinkedIn](https://www.linkedin.com/in/erniefabian3rd/)
